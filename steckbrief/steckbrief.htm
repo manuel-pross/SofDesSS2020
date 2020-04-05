@@ -36,6 +36,7 @@
 		}
 		.button__text {
 			font-size: 14px;
+			transition: all .3s ease-in-out;
 		}
 
 		.button__description {
@@ -50,7 +51,7 @@
 			right: 10px;
 			height: 8px;
 			width: 8px;
-			transform: rotate(45deg);
+			transform: rotate(225deg);
 			border-right: 2px solid #999;
 			border-top: 2px solid #999;
 			transition: all .3s ease-in-out;
@@ -59,11 +60,14 @@
 		.button:hover {
 			background: #fff;
 			cursor: pointer;
+			border-color: #000;
 		}
 
 		.button:hover::after {
 			right: 15px;
+			transform: rotate(45deg);
 		}
+
 		</style>
 </head>
 <body>
