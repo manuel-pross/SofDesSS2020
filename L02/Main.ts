@@ -1,5 +1,6 @@
 console.log('Hello World');
 console.log('Genieße die Kirschblüten');
+console.log('Das Ding is nur für FullHD optimiert');
 
 let myCanvas = <HTMLCanvasElement> document.querySelector('#my_canvas')
 let ctx = myCanvas.getContext('2d');
