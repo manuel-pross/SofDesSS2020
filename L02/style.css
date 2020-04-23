@@ -4,6 +4,11 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    overflow-y: hidden;
+  }
+
+  body {
+      margin: 0;
   }
 
   #my_canvas {

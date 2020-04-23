@@ -5,7 +5,7 @@ let ctx = myCanvas.getContext('2d');
 let blossomsOnScreen = 245;
 let blossomsArray = [];
 let w,h;
-w = myCanvas.width = window.innerWidth;
+w = myCanvas.width = document.body.clientWidth;
 h = myCanvas.height = window.innerHeight;
 
 function random(min, max) {
@@ -13,7 +13,7 @@ function random(min, max) {
 }
 
 function clientResize() {
-    w = myCanvas.width = window.innerWidth;
+    w = myCanvas.width = document.body.clientWidth;
     h = myCanvas.height = window.innerHeight;
 }
 
