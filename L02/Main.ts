@@ -4,6 +4,11 @@ console.log('%cGenieße die Kirschblüten', 'font-weight: italic; font-size: 15p
 console.log('%cDas Ding is nur für FullHD optimiert' , 'font-weight: bold; font-size: 10px;color: blue;');
 console.log('%cWürde ja gerne noch nen passenden Soundtrack einbauen. Aber dann krieg ich von der GEMA eventuell einen vorn Latz', 'font-weight: italic; font-size: 15px;color: green; text-shadow: 0px 0px 10px rgb(0,0,0)');
 
+if (window.innerHeight < 1080 && window.innerWidth < 1920) 
+    console.log('Du hast nich mindestens FullHD!?! Ernsthaft?!? Im Jahre 2020!?! Dann kannst du die Animation eben nicht in voller Pracht genießen. HA!')
+else
+    console.log('Mindestens FullHD? Guter Junge :)')
+
 const myCanvas = <HTMLCanvasElement> document.querySelector('#my_canvas')
 const ctx = myCanvas.getContext('2d');
 const blossomsOnScreen = 245;
