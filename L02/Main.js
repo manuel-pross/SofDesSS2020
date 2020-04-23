@@ -1,9 +1,9 @@
 "use strict";
 console.log('');
-console.log('%c Hello World!', 'font-weight: bold; font-size: 50px;color: red; text-shadow: 3px 3px 0 rgb(217,31,38) , 6px 6px 0 rgb(226,91,14) , 9px 9px 0 rgb(245,221,8) , 12px 12px 0 rgb(5,148,68) , 15px 15px 0 rgb(2,135,206) , 18px 18px 0 rgb(4,77,145) , 21px 21px 0 rgb(42,21,113)');
-console.log('Genieße die Kirschblüten');
-console.log('Das Ding is nur für FullHD optimiert');
-console.log('Würde ja gerne noch nen passenden Soundtrack einbauen. Aber krieg ich von der GEMA eventuell einen vorn Latz');
+console.log('%cHello World!', 'font-weight: bold; font-size: 50px;color: #FFB7C5; text-shadow: 0px 0px 10px rgb(0,0,0)');
+console.log('%cGenieße die Kirschblüten', 'font-weight: italic; font-size: 20px;color: red;');
+console.log('%cDas Ding is nur für FullHD optimiert', 'font-weight: bold; font-size: 15px;color: blue;');
+console.log('%cWürde ja gerne noch nen passenden Soundtrack einbauen. Aber krieg ich von der GEMA eventuell einen vorn Latz', 'font-weight: italic; font-size: 60px;color: #FFB7C5; text-shadow: 0px 0px 10px rgb(0,0,0)');
 let myCanvas = document.querySelector('#my_canvas');
 let ctx = myCanvas.getContext('2d');
 let blossomsOnScreen = 245;
