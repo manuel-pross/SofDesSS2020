@@ -1,10 +1,12 @@
 console.log('Hello World');
+console.log('Genieße die Kirschblüten');
 
 let myCanvas = <HTMLCanvasElement> document.querySelector('#my_canvas')
 let ctx = myCanvas.getContext('2d');
 let blossomsOnScreen = 245;
 let blossomsArray = [];
 let w,h;
+const framesPerSecond = 50;
 w = myCanvas.width = document.body.clientWidth;
 h = myCanvas.height = window.innerHeight;
 
@@ -61,32 +63,14 @@ function moveBlossoms() {
     }
 }
 
-function updateBlossomFall() {
-    ctx.clearRect(0, 0, w, h);
-    drawBlossoms();
-    moveBlossoms();
+function updateBlossomFall() { 
+    setTimeout(function() { 
+        ctx.clearRect(0, 0, w, h);
+        drawBlossoms();
+        moveBlossoms();
+        requestAnimationFrame(updateBlossomFall);
+    },1000 / framesPerSecond)
 }
 
-setInterval(updateBlossomFall, 50);
+requestAnimationFrame(updateBlossomFall);
 createSnowFlakes();
-
-// const firstName = prompt('Hello World. Willkommen. Wie heißt du denn?', 'Kevin');
-// let alphaKevin = prompt('Was Kevin? Dein Ernst? HAHAHAHAHAHAHA. Du Opfer. So ein richtiger Alphakevien oder wie?', 'Ja');
-// let personAge = prompt('Dacht ich mir xD Und wie alt bist du', '18');
-// let personAgeAsNumber = +personAge;
-
-// let answer;
-// if(personAgeAsNumber < 18)
-//     answer = prompt('Dann schnell weg von der Seite. Das is nix für dich', '18');
-// else {
-//     if(personAgeAsNumber > 65)
-//         answer = prompt('Rentner oder was? Nix besseres zu tun?', 'nein');
-//     else
-//         answer = prompt('Ok dann weiter viel Spaß auf der Seite. Unter F12 im Consolenreiter darfst du noch meinen Hello-World-Consoleneintrag bewundern. Oder hast keinen Bock', 'nein');
-// }
-
-// if(answer == 'nein') {
-//     let answer2 = prompt('Wie auch immer möge Covid dir gnädig sein', 'Danke. Für nichts...');
-//     document.body.innerHTML += '<p>Reicht das für nen Joker?</p>';
-//     console.log(answer2);
-// }

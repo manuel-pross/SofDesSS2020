@@ -1,10 +1,12 @@
 "use strict";
 console.log('Hello World');
+console.log('Genieße die Kirschblüten');
 let myCanvas = document.querySelector('#my_canvas');
 let ctx = myCanvas.getContext('2d');
 let blossomsOnScreen = 245;
 let blossomsArray = [];
 let w, h;
+const framesPerSecond = 50;
 w = myCanvas.width = document.body.clientWidth;
 h = myCanvas.height = window.innerHeight;
 function random(min, max) {
@@ -47,12 +49,22 @@ function moveBlossoms() {
         }
     }
 }
+// function updateBlossomFall() {
+//     ctx.clearRect(0, 0, w, h);
+//     drawBlossoms();
+//     moveBlossoms();
+// }
+// setInterval(updateBlossomFall, 50);
+// createSnowFlakes();
 function updateBlossomFall() {
-    ctx.clearRect(0, 0, w, h);
-    drawBlossoms();
-    moveBlossoms();
+    setTimeout(function () {
+        ctx.clearRect(0, 0, w, h);
+        drawBlossoms();
+        moveBlossoms();
+        requestAnimationFrame(updateBlossomFall);
+    }, 1000 / framesPerSecond);
 }
-setInterval(updateBlossomFall, 50);
+requestAnimationFrame(updateBlossomFall);
 createSnowFlakes();
 // const firstName = prompt('Hello World. Willkommen. Wie heißt du denn?', 'Kevin');
 // let alphaKevin = prompt('Was Kevin? Dein Ernst? HAHAHAHAHAHAHA. Du Opfer. So ein richtiger Alphakevien oder wie?', 'Ja');

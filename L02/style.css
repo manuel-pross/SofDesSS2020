@@ -10,7 +10,3 @@ html {
   body {
       margin: 0;
   }
-
-  #my_canvas {
-      z-index: 2;
-  }
