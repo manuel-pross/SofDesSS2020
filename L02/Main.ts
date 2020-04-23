@@ -24,7 +24,7 @@ function clientResize() {
 
 window.addEventListener('resize', clientResize);
 
-function createSnowFlakes() {
+function createBlossoms() {
     for (let i = 0; i < blossomsOnScreen; i++) {
         blossomsArray.push({
             x: Math.random() * w,
@@ -76,4 +76,4 @@ function updateBlossomFall() {
 }
 
 requestAnimationFrame(updateBlossomFall);
-createSnowFlakes();
+createBlossoms();

@@ -20,7 +20,7 @@ function clientResize() {
     h = myCanvas.height = window.innerHeight;
 }
 window.addEventListener('resize', clientResize);
-function createSnowFlakes() {
+function createBlossoms() {
     for (let i = 0; i < blossomsOnScreen; i++) {
         blossomsArray.push({
             x: Math.random() * w,
@@ -61,5 +61,5 @@ function updateBlossomFall() {
     }, 1000 / framesPerSecond);
 }
 requestAnimationFrame(updateBlossomFall);
-createSnowFlakes();
+createBlossoms();
 //# sourceMappingURL=Main.js.map
