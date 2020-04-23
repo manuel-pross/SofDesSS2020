@@ -1,7 +1,7 @@
 console.log('Hello World');
 console.log('Genieße die Kirschblüten');
 console.log('Das Ding is nur für FullHD optimiert');
-console.log('Der Track is aus dem Originalsoundtrack des 1997 erschienen Miyazaki-Films "Prinzessin Mononoke", heißt "The journey to the west" und ist gelinde gesagt weltklasse. Ebenso wie der genannte Film. Interpret: Joe Hisashi');
+console.log('Würde ja gerne noch nen passenden Soundtrack einbauen. Aber krieg ich von der GEMA eventuell einen vorn Latz');
 
 let myCanvas = <HTMLCanvasElement> document.querySelector('#my_canvas')
 let ctx = myCanvas.getContext('2d');
