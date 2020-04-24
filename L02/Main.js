@@ -98,7 +98,7 @@ function createBlossoms() {
 function drawBlossoms() {
     for (let i = 0; i < blossomsArray.length; i++) {
         ctx.beginPath();
-        ctx.arc(blossomsArray[i].x, blossomsArray[i].y, blossomsArray[i].radius, 0, //Startwinkel
+        ctx.arc(blossomsArray[i].x, blossomsArray[i].y, blossomsArray[i].getRadius(), 0, //Startwinkel
         Math.PI * 2, //Endwinkel
         false //clockwise?
         );
@@ -108,8 +108,8 @@ function drawBlossoms() {
 }
 function moveBlossoms() {
     for (let i = 0; i < blossomsArray.length; i++) {
-        blossomsArray[i].x += blossomsArray[i].speedX;
-        blossomsArray[i].y += blossomsArray[i].speedY;
+        blossomsArray[i].x += blossomsArray[i].getSpeedX();
+        blossomsArray[i].y += blossomsArray[i].getSpeedY();
         if (blossomsArray[i].y > h) {
             blossomsArray[i].x = Math.random() * w * 1.5;
             blossomsArray[i].y = -50;

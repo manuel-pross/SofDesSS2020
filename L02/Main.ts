@@ -2,9 +2,9 @@ class CherryBlossom {
 
     x: number;
     y: number;
-    speedX: number;
-    speedY: number;
-    radius: number;
+    protected speedX: number;
+    protected speedY: number;
+    protected radius: number;
 
     constructor(x: number, y: number, speedX: number, speedY: number, radius: number) {
         this.x = x;
@@ -132,7 +132,7 @@ function drawBlossoms() {
         ctx.arc(
             blossomsArray[i].x,
             blossomsArray[i].y,
-            blossomsArray[i].radius,
+            blossomsArray[i].getRadius(),
             0, //Startwinkel
             Math.PI*2, //Endwinkel
             false //clockwise?
@@ -144,8 +144,8 @@ function drawBlossoms() {
 
 function moveBlossoms() {
     for (let i = 0; i < blossomsArray.length; i++) {
-        blossomsArray[i].x += blossomsArray[i].speedX;
-        blossomsArray[i].y += blossomsArray[i].speedY;
+        blossomsArray[i].x += blossomsArray[i].getSpeedX();
+        blossomsArray[i].y += blossomsArray[i].getSpeedY();
 
         if (blossomsArray[i].y > h) {
             blossomsArray[i].x = Math.random() * w * 1.5;
