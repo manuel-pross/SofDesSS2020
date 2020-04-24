@@ -1,3 +1,60 @@
+class CherryBlossom {
+
+    x: number;
+    y: number;
+    speedX: number;
+    speedY: number;
+    radius: number;
+
+    constructor(x: number, y: number, speedX: number, speedY: number, radius: number) {
+        this.x = x;
+        this.y = y;
+        this.speedX = speedX;
+        this.speedY = speedY;
+        this.radius = radius;
+    }
+
+    public getX() {
+        return this.y;
+    }
+
+    public getY() {
+        return this.x;
+    }
+
+    public getSpeedX() {
+        return this.speedX;
+    }
+
+    public getSpeedY() {
+        return this.speedY;
+    }
+
+    public getRadius() {
+        return this.radius;
+    } 
+
+    public setX(x: number) {
+        this.x = x;
+    }
+
+    public setY(y: number) {
+        this.y = y;
+    }
+
+    public setSpeedX(speedX: number) {
+        this.speedX = speedX;
+    }
+
+    public setSpeedY(speedY: number) {
+        this.speedY = speedY;
+    }
+
+    public setRadius(radius: number) {
+        this.radius = radius;
+    } 
+}
+
 /******************************************************************
      VARS
 ******************************************************************/
@@ -5,8 +62,9 @@
 const myCanvas = <HTMLCanvasElement> document.querySelector('#my_canvas')
 const ctx = myCanvas.getContext('2d');
 const blossomsOnScreen = 245;
-let blossomsArray = [];
-let w,h;
+let blossomsArray: CherryBlossom[] = [];
+let h : number;
+let w : number;
 const framesPerSecond = 50;
 w = myCanvas.width = document.body.clientWidth;
 h = myCanvas.height = window.innerHeight;
@@ -52,7 +110,7 @@ document.querySelector('#play-button').addEventListener('click', function(event)
     FUNCTIONS
 ******************************************************************/
 
-function random(min, max) {
+function random(min: number, max: number ) {
     return min + Math.random() * (max - min + 1);
 }
 
@@ -63,13 +121,8 @@ function clientResize() {
 
 function createBlossoms() {
     for (let i = 0; i < blossomsOnScreen; i++) {
-        blossomsArray.push({
-            x: Math.random() * w,
-            y: Math.random() * h,
-            speedX: random(-11, 11),
-            speedY: random(7, 15),
-            radius: random(0.5, 4.2)
-        });
+        let cherryBlossom = new CherryBlossom(Math.random()*w, Math.random()*h, random(-11, 11), random(7, 15), random(0.5, 8));
+        blossomsArray.push(cherryBlossom);
     }
 }
 

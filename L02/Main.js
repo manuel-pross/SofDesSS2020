@@ -1,4 +1,43 @@
 "use strict";
+class CherryBlossom {
+    constructor(x, y, speedX, speedY, radius) {
+        this.x = x;
+        this.y = y;
+        this.speedX = speedX;
+        this.speedY = speedY;
+        this.radius = radius;
+    }
+    getX() {
+        return this.y;
+    }
+    getY() {
+        return this.x;
+    }
+    getSpeedX() {
+        return this.speedX;
+    }
+    getSpeedY() {
+        return this.speedY;
+    }
+    getRadius() {
+        return this.radius;
+    }
+    setX(x) {
+        this.x = x;
+    }
+    setY(y) {
+        this.y = y;
+    }
+    setSpeedX(speedX) {
+        this.speedX = speedX;
+    }
+    setSpeedY(speedY) {
+        this.speedY = speedY;
+    }
+    setRadius(radius) {
+        this.radius = radius;
+    }
+}
 /******************************************************************
      VARS
 ******************************************************************/
@@ -6,7 +45,8 @@ const myCanvas = document.querySelector('#my_canvas');
 const ctx = myCanvas.getContext('2d');
 const blossomsOnScreen = 245;
 let blossomsArray = [];
-let w, h;
+let h;
+let w;
 const framesPerSecond = 50;
 w = myCanvas.width = document.body.clientWidth;
 h = myCanvas.height = window.innerHeight;
@@ -51,13 +91,8 @@ function clientResize() {
 }
 function createBlossoms() {
     for (let i = 0; i < blossomsOnScreen; i++) {
-        blossomsArray.push({
-            x: Math.random() * w,
-            y: Math.random() * h,
-            speedX: random(-11, 11),
-            speedY: random(7, 15),
-            radius: random(0.5, 4.2)
-        });
+        let cherryBlossom = new CherryBlossom(Math.random() * w, Math.random() * h, random(-11, 11), random(7, 15), random(0.5, 8));
+        blossomsArray.push(cherryBlossom);
     }
 }
 function drawBlossoms() {

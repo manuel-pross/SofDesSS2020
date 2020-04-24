@@ -29,6 +29,8 @@ html {
     border-radius: 50%;
     border: none;
     transition: all .3s ease-in-out;
+    padding: 0;
+    margin-bottom: 15px;
   }
 
   .button_main:hover {
@@ -36,12 +38,8 @@ html {
     background-color: #e06523;
   }
 
-  .button_main:nth-child(even) {
-    margin-top: 5px;
-  }
-
-  .button_main:nth-child(odd) {
-    margin-bottom: 5px;
+  .button_main:last-child {
+    margin-bottom: 0;
   }
 
   .button_icon-play {
