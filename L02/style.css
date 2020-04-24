@@ -10,3 +10,58 @@ html {
   body {
       margin: 0;
   }
+
+  .button_container {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform:translateY(-50%);
+      border: none;
+      background-color: #000;
+      padding: 10px;
+      max-width: 50px;
+  }
+
+  .button_main {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    transition: all .3s ease-in-out;
+  }
+
+  .button_main:hover {
+    cursor: pointer;
+    background-color: #e06523;
+  }
+
+  .button_main:nth-child(even) {
+    margin-top: 5px;
+  }
+
+  .button_main:nth-child(odd) {
+    margin-bottom: 5px;
+  }
+
+  .button_icon-play {
+    position: absolute;
+    top: 50%;
+    right: 9px;
+    transform: translateY(-50%);
+	  width: 0;
+	  height: 0;
+	  border-top: 15px solid transparent;
+	  border-left: 25px solid #000;
+	  border-bottom: 15px solid transparent;
+  }
+
+  .button_icon-stop {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+	  width: 21px;
+    height: 21px;
+    background-color: #000;
+  }
