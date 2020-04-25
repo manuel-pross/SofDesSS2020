@@ -60,16 +60,16 @@ class CherryBlossom {
 ******************************************************************/
 
 const myCanvas = <HTMLCanvasElement> document.querySelector('#my_canvas')
-const ctx = myCanvas.getContext('2d');
-const blossomsOnScreen = 245;
+const ctx: CanvasRenderingContext2D = myCanvas.getContext('2d');
+const blossomsOnScreen: number = 245;
 let blossomsArray: CherryBlossom[] = [];
-let h : number;
-let w : number;
-const framesPerSecond = 50;
+let h :number;
+let w :number;
+const framesPerSecond :number = 60;
 w = myCanvas.width = document.body.clientWidth;
 h = myCanvas.height = window.innerHeight;
 let toggleButton = document.querySelector('#toggle-button');
-let isAnimationStopped = false;
+let isAnimationStopped: boolean = false;
 
 /******************************************************************
      EVENTS
@@ -145,6 +145,7 @@ function drawBlossoms() {
 function moveBlossoms() {
     for (let i = 0; i < blossomsArray.length; i++) {
         blossomsArray[i].x += blossomsArray[i].getSpeedX();
+        console.log(blossomsArray[i].x);
         blossomsArray[i].y += blossomsArray[i].getSpeedY();
 
         if (blossomsArray[i].y > h) {

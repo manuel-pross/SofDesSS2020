@@ -47,7 +47,7 @@ const blossomsOnScreen = 245;
 let blossomsArray = [];
 let h;
 let w;
-const framesPerSecond = 50;
+const framesPerSecond = 60;
 w = myCanvas.width = document.body.clientWidth;
 h = myCanvas.height = window.innerHeight;
 let toggleButton = document.querySelector('#toggle-button');
@@ -109,6 +109,7 @@ function drawBlossoms() {
 function moveBlossoms() {
     for (let i = 0; i < blossomsArray.length; i++) {
         blossomsArray[i].x += blossomsArray[i].getSpeedX();
+        console.log(blossomsArray[i].x);
         blossomsArray[i].y += blossomsArray[i].getSpeedY();
         if (blossomsArray[i].y > h) {
             blossomsArray[i].x = Math.random() * w * 1.5;
