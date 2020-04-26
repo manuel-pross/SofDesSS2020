@@ -109,7 +109,6 @@ function drawBlossoms() {
 function moveBlossoms() {
     for (let i = 0; i < blossomsArray.length; i++) {
         blossomsArray[i].x += blossomsArray[i].getSpeedX();
-        console.log(blossomsArray[i].x);
         blossomsArray[i].y += blossomsArray[i].getSpeedY();
         if (blossomsArray[i].y > h) {
             blossomsArray[i].x = Math.random() * w * 1.5;
