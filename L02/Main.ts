@@ -137,7 +137,7 @@ function drawBlossoms() {
             Math.PI*2, //Endwinkel
             false //clockwise?
         );
-        ctx.fillStyle = '#FFB7C5'
+        ctx.fillStyle = '#FFB7C5';
         ctx.fill();
     }
 }
@@ -145,7 +145,6 @@ function drawBlossoms() {
 function moveBlossoms() {
     for (let i = 0; i < blossomsArray.length; i++) {
         blossomsArray[i].x += blossomsArray[i].getSpeedX();
-        console.log(blossomsArray[i].x);
         blossomsArray[i].y += blossomsArray[i].getSpeedY();
 
         if (blossomsArray[i].y > h) {
