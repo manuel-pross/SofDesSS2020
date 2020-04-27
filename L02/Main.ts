@@ -108,9 +108,6 @@ playButton.addEventListener('click', function(event) {
 });
 
 document.querySelector('#info-button').addEventListener('click', function() {
-
-    console.log(infoText.classList.toString());
-
     if(infoText.classList.toString().includes('is-visible')) {
         isAnimationStopped = false;
         requestAnimationFrame(updateBlossomFall);
