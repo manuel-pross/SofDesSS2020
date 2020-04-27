@@ -7,15 +7,41 @@
     <title>Lektion 02</title>
 </head>
 <body>
-    <div class="conatiner">
+    <div class="container">
         <canvas id="my_canvas"></canvas>
         <div class="button_container">
             <button class="button_main" id="stop-button">
-                <div class="button_icon-stop" id="toggle-button"></div>
+                <div class="button_icon-stop"></div>
             </button>
             <button class="button_main" id="play-button">
-                <div class="button_icon-play" id="toggle-button"></div>
+                <div class="button_icon-play"></div>
             </button>
+            <button class="button_main" id="info-button">
+                <div class="button_icon-info"><strong>i</strong></div>
+            </button>
+        </div>
+        <div class="info-wrapper is-hidden" id="info-text">
+            <h2>Framework vs Library</h2>
+                <p>
+                    Dass die beiden Begriffe synonym verwendet werden liegt vermutlich daran, dass sie das selbe Ziel verfolgen: Sie erweitern den 
+                    Funktionsumfang.
+
+                    <h3>Library</h3>
+
+                    <p>
+                        Dabei handelt es sich um eine Sammlung von Klassen und Funktionen. Der Nutzer der Library hat dabei die volle Kontrolle wann und in welchen
+                        Umfang er die nötigen Funktionen aufruft. Wichtig zu erwähnen: Die Funktionalität der Library ist abgeschlossen und muss nicht vom Nutzer erweitert
+                        werden.
+                    </p>
+
+                    
+                    <h3>Framework</h3>
+
+                    <p>
+                        Der letzte Satz zeigt somit schon den wichtigsten Unterschied der beiden Begriffe. Ein Framework muss für die speziellen Anforderungen des Nutzers
+                        noch angepasst werden. Der Entwickler gibt einen gewissen Teil der Kontrolle ab.
+                    </p>
+                </p>
         </div>
     </div>
 </body>

@@ -50,8 +50,9 @@ let w;
 const framesPerSecond = 60;
 w = myCanvas.width = document.body.clientWidth;
 h = myCanvas.height = window.innerHeight;
-let toggleButton = document.querySelector('#toggle-button');
 let isAnimationStopped = false;
+let playButton = document.querySelector('#play-button');
+let infoText = document.querySelector('#info-text');
 /******************************************************************
      EVENTS
 ******************************************************************/
@@ -70,13 +71,29 @@ document.querySelector('#stop-button').addEventListener('click', function () {
     blossomsArray = [];
     isAnimationStopped = true;
 });
-document.querySelector('#play-button').addEventListener('click', function (event) {
+playButton.addEventListener('click', function (event) {
     if (!isAnimationStopped)
         event.preventDefault();
     else {
         isAnimationStopped = false;
         requestAnimationFrame(updateBlossomFall);
         createBlossoms();
+    }
+});
+document.querySelector('#info-button').addEventListener('click', function () {
+    console.log(infoText.classList.toString());
+    if (infoText.classList.toString().includes('is-visible')) {
+        isAnimationStopped = false;
+        requestAnimationFrame(updateBlossomFall);
+        createBlossoms();
+        infoText.classList.toggle('is-visible');
+        playButton.disabled = false;
+    }
+    else {
+        blossomsArray = [];
+        isAnimationStopped = true;
+        infoText.classList.toggle('is-visible');
+        playButton.disabled = true;
     }
 });
 /******************************************************************
