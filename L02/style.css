@@ -79,10 +79,14 @@ html {
     transform: translate(-50%, -50%);
     background-color: #FFF;
     padding: 2rem 2.5rem;
+    display: none;
   }
 
-  .is-hidden {
-    display: none;
+  @media only screen and (max-device-width: 420px) {
+    .info-wrapper {
+      height: 400px;
+      overflow: scroll;
+    }
   }
 
   .is-visible {

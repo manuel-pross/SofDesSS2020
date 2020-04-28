@@ -109,12 +109,14 @@ playButton.addEventListener('click', function(event) {
 
 document.querySelector('#info-button').addEventListener('click', function() {
     if(infoText.classList.toString().includes('is-visible')) {
+        console.log(infoText.classList.toString())
         isAnimationStopped = false;
         requestAnimationFrame(updateBlossomFall);
         createBlossoms(); 
         infoText.classList.toggle('is-visible');
         playButton.disabled = false;
     } else {
+        console.log(infoText.classList.toString())
         blossomsArray = [];
         isAnimationStopped = true;
         infoText.classList.toggle('is-visible');
