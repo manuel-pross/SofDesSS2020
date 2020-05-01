@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmieren in C# aber eigentlich TS</title>
+</head>
+<body>
+    <h1>Programmieren in C# aber eigentlich TS</h1>
+
+    <section class="lesson-datatypes">
+        <h2>Datentypen</h2>
+
+        <h3>Wie viel bytes benötigen die numerischen Datentypen?</h3>
+        <ul>
+            <li>uint 32 bit = 32 / 8 = <u>4 byte</u></li>
+            <li>short - 16 bit = 16 / 8 = <u>2 byte</u></li>
+            <li>byte - 8 bit = 8 / 8 = <u>1 byte</u></li>
+            <li>long - 64 bit = 64 / 8 = <u>8 byte</u></li>
+            <li>float - 32 / 8 = <u>4 byte</u></li>
+            <li>decimal - 128 / 8 = <u>16 byte</u></li>
+        </ul>
+
+        <h3>Wieviel Speicherplatz in bytes benötigt die Zeichenkette "Hello, World"?</h3>
+        <p>Die Zeichenkette "Hello, World" enthält 12 chars. Ein char benötigt 16 bit Speicherplatz</p>
+        <p>Rechnung: 12 * 16 = 192 bit / 8 = <u>24 bytes</u></p>
+
+        <h3>Vergleicht den Umfang der darstellbaren Zahlen zwischen int und short, sowie zwischen float und double. Wie groß ist jeweils der größte und der kleinste Wert? Wie groß ist der kleinste positive mit float darstellbare Wert?</h3>
+        <h4>short</h4>
+        <p>Größter darstellbarer Wert: <u>32.767</u>, kleinster darstellbarer Wert <u>-32.768</u></p>
+        <h4>int</h4>
+        <p>Größter darstellbarer Wert: <u>2.147.483.647</u>, kleinster darstellbarer Wert <u>-2.147.483.648</u></p>
+        <h4>float</h4>
+        <p>Größter darstellbarer Wert: <u>&plusmn;3,4 * 10</u><sup>38</sup>, kleinster darstellbarer Wert <u>&plusmn;1,5 * 10</u><sup>-45</sup></p>
+        <h4>double</h4>
+        <p>Größter darstellbarer Wert: <u>&plusmn;1,7 * 10</u><sup>308</sup>, kleinster darstellbarer Wert <u>&plusmn;5,0 * 10</u><sup>-324</sup></p>
+
+        <h3>Was heißt Fließkommazahl und was heißt Festkommazahl? Für welchen Anwendungsbereich ist decimal besonders geeignet? Warum?</h3>
+        <p>Fließkommazahl: Die Position des Kommas und damit der Exponent ist variabel und wird mit abgespeichert.</p>
+        <p>Festkommazahl: Die Position des Kommas und damit der Exponent ist fix.</p>
+        <p>Decimal eignet sich dann gut wenn wir genau wissen, wo das Komma des Ergebnisses sich befinden wird (Beisiel: Geldbetrag Euro)</p>
+        <p>In Typescript gibts als Zahlendatentype wohl nur number und chars gibts wohl auch nich</p>
+    </section>
+    <hr />
+    <section class="lesson-variable-declarations">
+        <h2>Variablendeklarationen</h2>
+
+        <h3>Warum darf der Programmierer horst seine Lieblingsvariable nicht nach seiner Freundin else benennen?</h3>
+        <p>Dieser name ist bereits für die else-Condition in C# reserviert und darf/kann nicht neu zugewiesen/verwendet werden.</p>
+
+        <h3>Erzeugt in Visual Studio Code ein neues C#-Projekt und fügt oben stehende Deklarationen und Initialisierungen der Variablen i, pi, und salute ein.</h3>
+        <p>  
+            <pre>
+                <code class="Typescript">
+                    var i: number = 42;
+                    var pi: number = 3.1415;
+                    var salute: string = "Hello World";
+                </code>
+            </pre>
+        </p>
+        
+    </section>
+    <hr />
+    <section class="lesson-arrays">
+        <h2>Arrays</h2>
+
+        <p>  
+            <pre>
+                <code class="C#">
+                    int[] ia = new int[10];
+                    char[] ca = new char[30];
+                    double[] da = new double[12];
+                </code>
+            </pre>
+        </p>
+
+        <p>Wäre in Typescript:</p>
+
+        <p>  
+            <pre>
+                <code class="Typescript">
+                    let ia[]: number = [];
+                    let ca[]: string = [];
+                    let da[]: number = [];
+                </code>
+            </pre>
+        </p>
+
+        <p>In Typescript finde ich keine Möglichkeit die Länge eines Arrays über einen Parameter zu setzen. Hier gibt es wohl nur die Möglichkeit die Länge über die Anzahl der Einträge zu setzen.</p>
+
+        <h3>Im o.a. Code-Schnipsel werden drei Array-Variablen deklariert und initialisiert. Wie heißen die Variablen, was ist der jeweilige Grund-Typ und wieviel Speicherplätze sind jeweils reserviert worden?</h3>
+
+        <ul>
+            <li>Name: ia, Grunddatentyp: int, Speicherplätze: 10</li>
+            <li>Name: ca, Grunddatentyp: char, Speicherplätze: 30</li>
+            <li>Name: da, Grunddatentyp: double, Speicherplätze: 12</li>
+        </ul>
+
+        <p>  
+            <pre>
+                <code class="C#">    
+                    int[] ia = new in[10];
+                    ia[0] = 1;
+                    ia[1] = 0;
+                    ia[2] = 2;
+                    ia[3] = 9;
+                    ia[4] = 3;
+                    ia[5] = 8;
+                    ia[6] = 4;
+                    ia[7] = 7;
+                    ia[8] = 5;
+                    ia[9] = 6;
+
+                    int ergebnis = ia[2] * ia[8] + ia[4];
+                </code>
+            </pre>
+        </p>
+
+        <p>In Typescript:</p>
+
+        <p>  
+            <pre>
+                <code class="Typescript">    
+                    let ia: number[] = [1, 0, 2, 9, 3, 8, 4, 7, 5, 6];
+
+                    int ergebnis = ia[2] * ia[8] + ia[4];
+                </code>
+            </pre>
+        </p>
+
+        <h3>Was steht in der Variablen ergebnis?</h3>
+
+        <p>Wert am Index: 2 = 2, Wert am Index: 8 = 5, Wert am Index: 3 = 3; Also 2 * 5 * 3 = <u>30</u></p>
+
+        <h3>Erzeugt einen Array vom Grund-Typ double, der drei Speicherplätze enthält in denen in der angegebenen Reihenfolge</h3>
+
+        <p> 
+            i. die Zahl PI,<br>
+            ii. die Eulersche Zahl und<br>
+            iii. die Kepler-Konstante<br>
+        </p>
+
+        <h3>enthalten sind</h3>
+
+        <h3>Gebt nach der Initialisierung des o.A. Arrays mit Console.WriteLine(ia.Length); die Anzahl der Einträge aus.</h3>
+        <h3>Ändert die Anzahl der Einträge und überprüft die Ausgabe.</h3>
+
+        <p>  
+            <pre>
+                <code class="Typescript">    
+                    let doubleArray: number[] = [Math.PI, Math.E, 2.97 * Math.pow(10, -19), 5];
+                    console.log("3");
+                </code>
+            </pre>
+        </p>
+
+        <p>Naja füg ich einen wert hinzu erhöht sich auch die Länge um eins. Logisch. Wichtig zu erwähnen: ist ein Array einmal mit einer Länge initialisiert is die fix und man kann nichts mehr hinzufügen. Zumindest in Java und eventuell in anderen Programmiersprachen. Die haben für dynamische Container Vektoren oder ArrayLists. In Java-Script/Typescript ist das hinzufügen über arr.push() möglich.</p>
+
+    </section>
+    <hr />
+    <section class="lesson-strings">
+        <h2>Strings</h2>
+
+        <h4>In C#</h4>
+
+        <p>  
+            <pre>
+                <code class="C#">    
+                    string meinString = "Dies ist ein String";
+
+                    string a = "Dies ist ";
+                    string b = "ein String";
+                    string c = a + b;
+
+                    string a = "eins";
+                    string b = "zwei";
+                    string c = "eins";
+                    bool a_eq_b = (a == b);
+                    bool a_eq_c = (a == c);
+
+                    string meinString = "Dies ist ein String";
+                    char zeichen = meinString[5];
+                </code>
+            </pre>
+        </p>       
+
+        <h4>In Typescript</h4>
+
+        <p>  
+            <pre>
+                <code class="Typescript">    
+                    let meinString: string = "Dies ist ein String";
+
+                    let a: string = "Dies ist ";
+                    let b: string = "ein String";
+                    let c: string = a + b;
+
+                    let a: string = "eins";
+                    let b: string = "zwei";
+                    let c: string = "eins";
+                    let a_eq_b: boolean  = (a == b);
+                    let a_eq_c: boolean = (a == c);
+
+                    let meinString: string = "Dies ist ein String";
+                    let zeichen: string = meinString[5];
+                </code>
+            </pre>
+        </p>   
+        
+        <h3>Fügt den o.a. Beispielcode zu Strings einem C#-Projekt zu und überprüft jeweils die Variableninhalte von meinString, c, a_eq_b, a_eq_c und zeichen mit Console.WriteLine oder mit dem Debugger.</h3>
+
+        <p>Siehe Konsole</p>
+
+    </section>
+    <hr />
+    <section class="lesson-if-else">
+        <h2>Verzweigungen</h2>
+
+        <h3>Schreibt ein C#-Programm, das zwei Zahlen von der Konsole einliest. Diese sollen verglichen werden. Ist die erste größer als die zweite, soll der Text "a ist größer als b" ausgegeben werden, ansonsten der Text "b ist größer als a".</h3>
+
+        <pre>
+            <code class="C#">    
+                let zahl1: number = parseInt(window.prompt("Gib bidde ne Zahl ein", "1"));
+                let zahl2: number = parseInt(window.prompt("Gib bidde ne Zahl ein", "1"));
+                if (zahl1 > zahl2)
+                    console.log("a ist größer als b");
+                else
+                    console.log("b ist größer als a");
+            </code>
+        </pre>
+
+    </section>
+    <hr />
+    <section class="lesson-switch-case">
+        <h2>switch / case</h2>
+
+        <h4>In C#</h4>
+
+        <pre>
+            <code class="C#">    
+                int i = int.Parse(Console.ReadLine());
+                switch (i)
+                {
+                   case 1:
+                      Console.WriteLine("Du hast EINS eingegeben");
+                      break;
+                   case 2:
+                      Console.WriteLine("ZWEI war Deine Wahl");
+                      break;
+                   case 3:
+                      Console.WriteLine("Du tipptest eine DREI");
+                      break;
+                   default:
+                      Console.WriteLine("Die Zahl " + i + " kenne ich nicht");
+                      break;
+                }
+            </code>
+        </pre>
+
+        <h4>In Typescript</h4>
+
+        <pre>
+            <code class="Typescript">    
+                let i: number = parseInt(window.prompt("Gib bidde ne Zahl ein", "Standardwert der Eingabe"));
+                switch (i)
+                {
+                   case 1:
+                      console.log("Du hast EINS eingegeben");
+                      break;
+                   case 2:
+                      console.log("ZWEI war Deine Wahl");
+                      break;
+                   case 3:
+                      console.log("Du tipptest eine DREI");
+                      break;
+                   default:
+                      console.log("Die Zahl " + i + " kenne ich nicht");
+                      break;
+                }
+            </code>
+        </pre>
+
+        <h3>Verwendet o.a. Code in einem lauffähigen C#-Programm und probiert es aus.</h3>
+
+        <p>Siehe Konsole</p>
+
+        <h3>Erweitert den Code um einen weiteren Switch für eine Zahl Eurer Wahl.</h3>
+
+        <pre>
+            <code class="Typescript">    
+                let j: number = parseInt(window.prompt("Gib bidde ne Zahl ein", "1"));
+                switch (j) {
+                   case 1:
+                      console.log("Du hast EINS eingegeben");
+                      break;
+                   case 2:
+                      console.log("ZWEI war Deine Wahl");
+                      break;
+                   case 3:
+                      console.log("Du tipptest eine DREI");
+                      break;
+                   case 4:
+                       console.log(j + " gewinnt :)"); 
+                       break;
+                   default:
+                      console.log("Die Zahl " + j + " kenne ich nicht");
+                      break;
+                }
+            </code>
+        </pre>
+
+        <h3>Ändert den Typ der Variablen i von int nach string und ändert die case-Labels, so dass diese aus Strings bestehen.</h3>
+
+        <pre>
+            <code class="Typescript">    
+                let k: string = window.prompt("Gib bidde ne Zahl ein", "1");
+                switch (k) {
+                   case "1":
+                      console.log("Du hast EINS eingegeben");
+                      break;
+                   case "2":
+                      console.log("ZWEI war Deine Wahl");
+                      break;
+                   case "3":
+                      console.log("Du tipptest eine DREI");
+                      break;
+                   case "4":
+                       console.log(k + " gewinnt :)"); 
+                       break;
+                   default:
+                      console.log("Die Zahl " + k + " kenne ich nicht");
+                      break;
+                }
+            </code>
+        </pre>
+
+        <h3>Was passiert, wenn man an einer Stelle das break vergisst? Denkt euch Fälle aus, bei denen das sinnvoll sein kann.</h3>
+
+        <p>Der nachfolgende Fall wird ausgeführt. Man kann es weglassen wenn man stattdessen gleich einen Wert returnen will.</p>
+
+        <h3>Versucht, die oben mit der switch / case Anweisung implementierte Funktionalität mit if/ else Anweisungen zu implementieren.</h3>
+
+        <pre>
+            <code class="Typescript">    
+                let l: number = parseInt(window.prompt("Gib bidde ne Zahl ein", "1"));
+                if (l === 1) {
+                    console.log("Du hast EINS eingegeben");
+                } else if (l === 2) {
+                    console.log("ZWEI war Deine Wahl");
+                } else if (l === 3) {
+                    console.log("Du tipptest eine DREI");
+                } else {
+                    console.log("Die Zahl " + l + " kenne ich nicht");
+                } 
+            </code>
+        </pre>
+
+    </section>
+    <hr />
+    <section class="lesson-schleifen">
+        <h2>Schleifen (while)</h2>
+
+        <h3>Erzeugt ein C# Programm, das in einer while-Schleife die Zahlen von 1 bis 10 auf der Konsole ausgibt.</h3>
+
+        <pre>
+            <code class="Typescript">    
+                let zaehler: number = 1;
+                while(zaehler < 11) {
+                    console.log(zaehler);
+                    zaehler++;
+                }
+            </code>
+        </pre>
+
+        <h3>Wie lauten hier die Teile INITIALISIERUNG, BEDINGUNG und INKREMENT?</h3>
+
+        <ul>
+            <li>INITIALISIERUNG = let zaehler: number = 1;</li>
+            <li>BEDINGUNG = zaehler < 11</li>
+            <li>INKREMENT = zaehler++;</li>
+        </ul>
+
+        <h2>Schleifen (for)</h2>
+
+        <h4>In C#</h4>
+
+        <pre>
+            <code class="C#">    
+                string[] someStrings = {
+                  "Hier",
+                  "sehen",
+                  "wir",
+                  "einen",
+                  "Array",
+                  "von",
+                  "Strings
+                };
+                
+                for (int i = 0; i < 5; i++)
+                {
+                  Console.WriteLine(someStrings[i]);
+                }
+            </code>
+        </pre>
+
+        <h4>In TypeScript</h4>
+
+        <pre>
+            <code class="TypeScript">    
+                let someStrings: string[] = 
+                [
+                "Hier",
+                "sehen", 
+                "wir", 
+                "einen", 
+                "Array", 
+                "von", 
+                "Strings"
+                ];
+
+                for (let i: number = 0; i < 5; i++) {
+                console.log(someStrings[i]); 
+                }
+            </code>
+        </pre>
+
+        <h3>Lasst o.a. Code laufen. Was tut er?</h3>
+
+        <p>Er iteriert über die Inizies 0 - 4 des Arrays und gibt in jeweils einer neuen Zeile die Strings des Arrays von "Hier" - "Array" aus</p>
+
+        <h3>Wandelt die for-Schleife in eine while-Schleife um</h3>
+
+        <pre>
+            <code class="TypeScript">    
+                let someStrings: string[] = ["Hier",
+                "sehen", 
+                "wir", 
+                "einen", 
+                "Array", 
+                "von", 
+                "Strings"
+                ];
+
+                let i: number = 0;
+                while(i < 5) {
+                console.log(someStrings[i]);
+                i++
+                }
+            </code>
+        </pre>
+
+        <h3>Lasst statt der erste 5 alle in someStrings gespeicherten Werte ausgeben, indem die Bedingung statt eines konstanten Wertes die jeweilige Anzahl der Inhalte von someStrings ausgibt (geht mit someStrings.Length).</h3>
+
+        <pre>
+            <code class="TypeScript">    
+                let someStrings: string[] = ["Hier",
+                "sehen", 
+                "wir", 
+                "einen", 
+                "Array", 
+                "von", 
+                "Strings"
+                ];
+
+                for (let i: number = 0; i < someStrings.length; i++)
+                    console.log(someStrings[i]);
+            </code>
+        </pre>
+
+        <h2>Schleifen (do while)</h2>
+
+        <h4>In C#</h4>
+
+        <pre>
+            <code class="C#">    
+                int i = 0;
+                do ( )
+                {
+                  Console.WriteLine(someStrings[i]);
+                  i++;
+                }
+                while (i < 5);
+            </code>
+        </pre>
+
+        <h4>In TypeScript</h4>
+
+        <pre>
+            <code class="TypeScript">    
+                let someStrings: string[] = ["Hier",
+                "sehen", 
+                "wir", 
+                "einen", 
+                "Array", 
+                "von", 
+                "Strings"
+                ];
+                
+                let i: number = 0;
+                do {
+                    console.log(someStrings[i]);
+                    i++;
+                } while (i < 5);
+            </code>
+        </pre>
+
+        <h2>Schleifen (break)</h2>
+
+        <h4>In C#</h4>
+
+        <pre>
+            <code class="C#">    
+                int i = 0;
+                while (true)
+                {
+                  Console.WriteLine(someStrings[i]);
+                  if (i >= 4)
+                    break;
+                  i++;
+                }
+            </code>
+        </pre>
+
+        <h4>In TypeScript</h4>
+
+        <pre>
+            <code class="TypeScript">    
+                let someStrings: string[] = ["Hier",
+                "sehen", 
+                "wir", 
+                "einen", 
+                "Array", 
+                "von", 
+                "Strings"
+                ];
+                
+                let i: number = 0;
+                while (true) {
+                    console.log(someStrings[i]);
+                    if (i >= 4)
+                        break;
+                    i++;
+                }
+                
+                // Man kanns auch kompliziert machen...
+            </code>
+        </pre>
+
+
+        <h3>Sind die beiden Beispiele wirklich äquivalent zur for-Schleife?</h3>
+
+        <p>Wenn damit gemeint ist ob sie die gleiche Ausgabe liefern: Ja</p>
+
+        <h3>Verändert in allen drei Fällen die Abbruchbedingung so, dass alle Array-Einträge ausgegeben werden und zwar in Abhängigkeit von der Anzahl der Array-Einträge (someStrings.Length).</h3>
+
+        <p>Sind doch nur zwei wenn man sich hier auf "do while" und "Schleife mit break" bezieht oder?</p>
+
+        <pre>
+            <code class="TypeScript">    
+                let someStrings: string[] = ["Hier",
+                "sehen", 
+                "wir", 
+                "einen", 
+                "Array", 
+                "von", 
+                "Strings"
+                ];
+                
+                let i: number = 0;
+                do {
+                    console.log(someStrings[i]);
+                    i++;
+                } while (i < someStrings.length);
+            </code>
+        </pre>
+
+        <pre>
+            <code class="TypeScript">    
+                let someStrings: string[] = ["Hier",
+                "sehen", 
+                "wir", 
+                "einen", 
+                "Array", 
+                "von", 
+                "Strings"
+                ];
+
+                let i: number = 0;
+                while (true) {
+                    console.log(someStrings[i]);
+                    if (i >= someStrings.length - 1)
+                        break;
+                    i++;
+                }
+            </code>
+        </pre>
+
+        <h3>Was passiert in den drei Fällen, wenn someStrings keine Einträge enthält?</h3>
+
+        <p>Es wird ein undefined ausgespuckt, da wir auf einen Index zugreifen der nicht existiert. In anderen Programmiersprachen kommt hier das legendäre "Index out of bounds".</p>
+
+        <h2>Schleifen (for each)</h2>
+
+        <h3>Diskutiert Vor- und Nachteile der Schleifenkonstruktion mit for aus dem Beispiel oben gegenüber dem Beispiel mit foreach hinsichtlich: Klarheit, Schreibaufwand, Flexibilität</h3>
+
+        <ul>
+            <li>Klarheit: Für einen blutigen Anfänger ist das wohl nicht so klar, da rein aus der Syntax nicht deutlich wird, dass immer eine Datantyp oder Objekt erzeugt wird, dem der jeweilige Wert an dem akutellen Index des Arrays zugewiesen wird</li>
+            <li>Schreibaufwand: Der is natürlich deutlich geringer</li>
+            <li>Flexibilität: Da wir hier keine Variable für den Index haben ist es nicht möglich dynamisch auf den Index zuzugreifen. Kennen wir Inhalt und Länge des Arrays können wir das natürlich immer noch. Eventuell gibt es in der jeweiligen Programmiersprache Möglichkeiten das anders zu gestalten</li>
+        </ul>
+
+    </section>
+</body>
+<script src="Main.js"></script>
+</html>
