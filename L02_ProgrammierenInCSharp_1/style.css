@@ -26,3 +26,7 @@ pre {
 hr {
     border: 1px solid #000;
 }
+
+ul {
+    list-style-type: square;
+}
