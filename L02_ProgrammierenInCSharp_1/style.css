@@ -1,0 +1,28 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    color: #0088FF;
+}
+
+pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 5px solid #f36d33;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding-top: 1.25em;
+    display: block;
+    word-wrap: break-word;
+}
+
+hr {
+    border: 1px solid #000;
+}
