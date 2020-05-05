@@ -1,45 +1,45 @@
 "use strict";
-// console.log("Erzeugt in Visual Studio Code ein neues C#-Projekt und fügt oben stehende Deklarationen und Initialisierungen der Variablen i, pi, und salute ein.");
-// console.log("Verändert die Deklarationen so, dass var statt der Typen verwendet wird und überzeugt Euch, dass der Compiler den Code korrekt übersetzt.");
-// console.log("Todo Nr.3 ergibt in TS wohl nich so viel Sinn...");
-// var i: number = 42;
-// var pi: number = 3.1415;
-// var salute: string = "Hello World";
-// console.log("Variable i: " + i);
-// console.log("Variable pi: " + pi);
-// console.log("Variable salute: " + salute);
-// console.log("Erzeugt einen Array vom Grund-Typ double, der drei Speicherplätze enthält in denen in der angegebenen Reihenfolge: die Zahl PI, die Eulersche Zahl und die Kepler-Konstante enthalten sind.");
-// let doubleArray: number[] = [Math.PI, Math.E, 2.97 * Math.pow(10, -19), 5];
-// console.log("Gebt nach der Initialisierung des o.A. Arrays mit Console.WriteLine(ia.Length); die Anzahl der Einträge aus.");
-// console.log("3");
-// console.log("Ändert die Anzahl der Einträge und überprüft die Ausgabe.");
-// console.log("Naja füg ich einen wert hinzu erhöht sich auch die Länge um eins. Logisch. Wichtig zu erwähnen: ist ein Array einmal mit einer Länge initialisiert is die fix und man kann nichts mehr hinzufügen. Zumindest in Java und eventuell in anderen Programmiersprachen. Die haben für dynamische Container Vektoren oder ArrayLists. In Java-Script/Typescript ist das hinzufügen über arr.push() möglich.");
-// console.log("Leichte Initialisierung von String-Inhalten durch einfache Konstanten-Syntax")
-// let meinString: String = "Dies ist ein String";
-// console.log(meinString);
-// let a: string = "Dies ist ";
-// let b: string = "ein String";
-// let c: string = a + b;
-// console.log("Aneinanderhängen (concatenation) von Strings durch den + Operator");
-// console.log(a);
-// console.log(b);
-// console.log(c);
-// let d: string = "eins";
-// let e: string = "zwei";
-// let f: string = "eins";
-// let aEqB: boolean = (d == e);
-// let aEqC: boolean = (d == f);
-// console.log("Vergleich von String-Inhalten mit dem == Operator");
-// console.log(d);
-// console.log(d);
-// console.log(f);
-// console.log(aEqB);
-// console.log(aEqC);
-// console.log("Und tatsächlich funktioniert aber auch der Zugriff auf einzelne Zeichen wie auf einzelne Einträge eines Arrays");
-// let meinString2: string = "Dies ist ein String";
-// let zeichen: string = meinString[5];
-// console.log(meinString2);
-// console.log(meinString2[5]);
+console.log("Erzeugt in Visual Studio Code ein neues C#-Projekt und fügt oben stehende Deklarationen und Initialisierungen der Variablen i, pi, und salute ein.");
+console.log("Verändert die Deklarationen so, dass var statt der Typen verwendet wird und überzeugt Euch, dass der Compiler den Code korrekt übersetzt.");
+console.log("Todo Nr.3 ergibt in TS wohl nich so viel Sinn...");
+var j = 42;
+var pi = 3.1415;
+var salute = "Hello World";
+console.log("Variable i: " + j);
+console.log("Variable pi: " + pi);
+console.log("Variable salute: " + salute);
+console.log("Erzeugt einen Array vom Grund-Typ double, der drei Speicherplätze enthält in denen in der angegebenen Reihenfolge: die Zahl PI, die Eulersche Zahl und die Kepler-Konstante enthalten sind.");
+let doubleArray = [Math.PI, Math.E, 2.97 * Math.pow(10, -19), 5];
+console.log("Gebt nach der Initialisierung des o.A. Arrays mit Console.WriteLine(ia.Length); die Anzahl der Einträge aus.");
+console.log("3");
+console.log("Ändert die Anzahl der Einträge und überprüft die Ausgabe.");
+console.log("Naja füg ich einen wert hinzu erhöht sich auch die Länge um eins. Logisch. Wichtig zu erwähnen: ist ein Array einmal mit einer Länge initialisiert is die fix und man kann nichts mehr hinzufügen. Zumindest in Java und eventuell in anderen Programmiersprachen. Die haben für dynamische Container Vektoren oder ArrayLists. In Java-Script/Typescript ist das hinzufügen über arr.push() möglich.");
+console.log("Leichte Initialisierung von String-Inhalten durch einfache Konstanten-Syntax");
+let meinString = "Dies ist ein String";
+console.log(meinString);
+let a = "Dies ist ";
+let b = "ein String";
+let c = a + b;
+console.log("Aneinanderhängen (concatenation) von Strings durch den + Operator");
+console.log(a);
+console.log(b);
+console.log(c);
+let d = "eins";
+let e = "zwei";
+let f = "eins";
+let aEqB = (d == e);
+let aEqC = (d == f);
+console.log("Vergleich von String-Inhalten mit dem == Operator");
+console.log(d);
+console.log(d);
+console.log(f);
+console.log(aEqB);
+console.log(aEqC);
+console.log("Und tatsächlich funktioniert aber auch der Zugriff auf einzelne Zeichen wie auf einzelne Einträge eines Arrays");
+let meinString2 = "Dies ist ein String";
+let zeichen = meinString[5];
+console.log(meinString2);
+console.log(meinString2[5]);
 // console.log("Verwendet o.a. Code in einem lauffähigen C#-Programm und probiert es aus.");
 // let j: number = parseInt(window.prompt("Gib bidde ne Zahl ein", "1"));
 // switch (j) {
@@ -102,54 +102,54 @@
 //     console.log(zaehler);
 //     zaehler++;
 // }
-// let someStrings: string[] = ["Hier",
-//                         "sehen", 
-//                         "wir", 
-//                         "einen", 
-//                         "Array", 
-//                         "von", 
-//                         "Strings"
-//                         ];
-// for (let i: number = 0; i < 5; i++) {
-//     console.log(someStrings[i]); 
-// }
-// let someStrings: string[] = ["Hier",
-// "sehen", 
-// "wir", 
-// "einen", 
-// "Array", 
-// "von", 
-// "Strings"
-// ];
-// for (let i: number = 0; i < someStrings.length; i++)
-//     console.log(someStrings[i]);
-// let someStrings: string[] = ["Hier",
-// "sehen", 
-// "wir", 
-// "einen", 
-// "Array", 
-// "von", 
-// "Strings"
-// ];
-// let i: number = 0;
-// do {
-//     console.log(someStrings[i]);
-//     i++;
-// } while (i < someStrings.length);
-// let someStrings: string[] = ["Hier",
-// "sehen", 
-// "wir", 
-// "einen", 
-// "Array", 
-// "von", 
-// "Strings"
-// ];
-// let i: number = 0;
-// while (true) {
-//     console.log(someStrings[i]);
-//     if (i >= someStrings.length - 1)
-//         break;
-//     i++;
-// }
-// Man kanns auch kompliziert machen...
+let someStrings = ["Hier",
+    "sehen",
+    "wir",
+    "einen",
+    "Array",
+    "von",
+    "Strings"
+];
+for (let i = 0; i < 5; i++) {
+    console.log(someStrings[i]);
+}
+let someStrings1 = ["Hier",
+    "sehen",
+    "wir",
+    "einen",
+    "Array",
+    "von",
+    "Strings"
+];
+for (let i = 0; i < someStrings1.length; i++)
+    console.log(someStrings1[i]);
+let someStrings2 = ["Hier",
+    "sehen",
+    "wir",
+    "einen",
+    "Array",
+    "von",
+    "Strings"
+];
+let k = 0;
+do {
+    console.log(someStrings2[k]);
+    k++;
+} while (k < someStrings2.length);
+let someStrings3 = ["Hier",
+    "sehen",
+    "wir",
+    "einen",
+    "Array",
+    "von",
+    "Strings"
+];
+let l = 0;
+while (true) {
+    console.log(someStrings3[l]);
+    if (l >= someStrings3.length - 1)
+        break;
+    l++;
+}
+//Nice while true... beschde
 //# sourceMappingURL=Main.js.map
