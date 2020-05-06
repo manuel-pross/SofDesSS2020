@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L03 - Debugging</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Debugging in TypeScript</h1>
+
+    <section>
+        <h2>printf-Debugging</h2>
+
+        <h3>TODO: Findet heraus, was die Methode ToString() bei Arrays, Listen und selbst definierten Datentypen (wie z.B. Klassen) macht.</h3>
+
+        <p>  
+            <pre>
+                <code class="TypeScript">
+                    //Klasse zum testen
+                    class Person {
+                        protected firstName: string;
+                        protected lastName: string;
+                        protected dateOfBirth: Date;
+                    
+                        constructor(_firstName: string, _lastName: string, _dateOfBirth: Date) {
+                            this.firstName = _firstName;
+                            this.lastName = _lastName;
+                            this.dateOfBirth = _dateOfBirth;
+                        }
+                    
+                        // Getters
+                        getFirstName(): string {
+                            return this.firstName;
+                        }
+                    
+                        getLastName(): string {
+                            return this.lastName;
+                        }
+                    
+                        getDateOfBirth(): Date {
+                            return this.dateOfBirth;
+                        }
+                    
+                    
+                        //Setters
+                        setFirstName(_newFirstName: string): void {
+                            this.firstName = _newFirstName;
+                        }
+                    
+                        setLastName(_newLastName: string): void {
+                            this.lastName = _newLastName;
+                        }
+                    
+                        setDateOfBirth(_newDateOfBirth: Date): void {
+                            this.dateOfBirth = _newDateOfBirth;
+                        }
+                    }
+                    
+                    let numberArr: number[] = [1, 4, 7, 3, 0, 1];
+                    let stringArr: string[] = ["Boss", "Chef", "Kaiser", "King", "Babo"];
+                    let soEinTyp: Person = new Person("Manuel", "Pross", new Date(1995, 11, 19));
+                    
+                    console.log(numberArr.toString());
+                    console.log(stringArr.toString());
+                    console.log(soEinTyp.toString());
+                </code>
+            </pre>
+        </p>
+
+        <h4>Output</h4>
+
+        <p>  
+            <pre>
+                <code class="TypeScript">
+
+                    //Output numberArr.toString(): 1,4,7,3,0,1
+                    //Output stringArr.toString(): Boss,Chef,Kaiser,King,Babo
+                    //Output Person.toString(): [object Object] 
+
+                </code>
+            </pre>
+        </p>
+
+        <h3>Erzeugt für folgende Klasse Person eine eigene ToString() Methode. Erzeugt eine Test-Routine, in einem Array fünf Instanzen von Person erzeugt und in einer Schleife alle Personen auf der Konsole ausgibt, die älter als 20 sind.</h3>
+
+        <p>  
+            <pre>
+                <code class="TypeScript">
+
+                    toString(): string {
+                        let personsAge: number = this.getPersonsAge();
+                
+                        if (personsAge < 0)
+                            return "Du bist noch nich mal geboren... Krass...";
+                
+                        return this.firstName + " " + this.lastName + " ist " + personsAge + " Jahre alt." ;
+                    }
+
+                    getPersonsAge(): number {
+
+                        let personsAge: number;
+                        let actualDate: Date = new Date();
+                
+                        let birthdayYear: number = this.dateOfBirth.getFullYear();
+                        let todaysYear: number = actualDate.getFullYear();
+                
+                        let birthdayMonth: number = this.dateOfBirth.getMonth();
+                        let todaysMonth: number = actualDate.getMonth();
+                
+                        let birthdayDay: number = this.dateOfBirth.getDay();
+                        let todaysDay: number = actualDate.getDay();
+                
+                        personsAge = todaysYear - birthdayYear;
+                
+                        if (birthdayMonth >= todaysMonth && birthdayDay <= todaysDay) {
+                            personsAge--;
+                        }
+                
+                        return personsAge;
+                    }
+
+                    let personsArr: Person[] = [];
+
+                    for (let i: number = 0; i < 5; i++) {
+                        let newPerson: Person = new Person("Typ " + i, "Lappen " + i, new Date(1996 + i, 3 + i, 4 + i));  
+                        personsArr.push(newPerson);
+
+                        if (newPerson.getPersonsAge() > 20)
+                            console.log(newPerson.toString());
+                    }
+                    
+                </code>
+            </pre>
+        </p>
+    </section>
+
+    <section>
+        <h2>Der Debugger</h2>
+
+        <h3>TODO: Untersucht die weiteren Befehle der Debug actions pane. Was passiert, wenn einer der anderen Buttons gedrückt wird?</h3>
+        <h3>TODO: Recherchiert im Internet, wozu die anderen Buttons gut sind und erklärt euch, in welchen Situationen diese nützlich sein könnten.</h3>
+
+        <h4>Debug actions pane im Chrome Browser</h4>
+
+        <img src="debug_actions_pane.JPG" alt="Debug actions pane">
+
+        <p>Zu finden unter: F12 -> Sources -> main.js -> Breakpoint setzen (Ein Mausklick auf die entsprechende Zeile im Code)</p>
+
+        <h4>Button-Funktion von links nach rechts</h4>
+
+        <ul>
+            <li><strong>Pause script execution / Resume script execution:</strong> Beendet den aktuellen Debugging-Prozess, beziehungsweise springt zum nächsten Breaktpoint. (Ist nützlich wenn man nicht mehr debuggen will oder in einem Schleifendurchlauf zum nächsten Durchlauf will).</li>
+            <li><strong>Step over next function call:</strong> Der Debugger springt über Funktion die in der aktuellen Zeile aufgerufen wird (Ist nützlich wenn falls wir schon wissen oder nicht wissen wollen was in der Methode passiert)</li>
+            <li><strong>Step into next function call:</strong> Der Debugger springt in die Funktion die in der aktuellen Zeile aufgerufen wird (Ist nützlich wenn falls wir nicht wissen oder wissen wollen was in der Methode passiert)</li>
+            <li><strong>Step out of current function:</strong> Der Debugger springt aus der aktuellen Funktion in die nächste Zeile der übergeordneten (Man arbeitet sich so im Call-Stack nach oben. Ist nützlich wenn wir genug von der Methode gesehen haben)</li>
+            <li><strong>Step:</strong> Der nächste Schritt im Code wird ausgeführt. Falls eine selbst geschriebene Methode aufgerufen wird, springt der Debugger in deren erste Zeile (Damit kann man sich durch die wichtigsten Schritte des Programms durchhangeln)</li>
+            <li><strong>Deactivate breakpoints:</strong> Alle Breakpoints werden deaktiviert. Man kann die vorab beschriebenen Befehle weiter ausführen (Damit können wir folgende Breakpoints löschen, falls wir sie nicht mehr benötigen)</li>
+            <li><strong>Pause on exceptions:</strong> Wird eine Exception geworfen, die nicht abgefangen wird, stoppt der Debugger an disem Codeschnipsel als hätte man dort einen Breakpoint gesetzt (Das ist nützlich falls wir uns erklären wollen warum eine Exception geworfen wird)</li>
+        </ul>
+
+        <h3>TODO: Stoppt den Debugger nach dem Anlegen mehrerer Personen und haltet die Maus über verschiedene Identifizierer oder Variablennamen.</h3>
+
+        <p>Man kann im Chrome Debugger ebenfalls über bereits durchgeführe Befehle hovern und sich die entsprechenden Inhalte der Variable anschauen</p>
+
+        <img src="watch_window.JPG" alt="Chrome watch window">
+
+        <p>Desweiteren kann man im watch window entsprechende Variablen eingeben, deren Inhalte man überwachen will</p>
+
+        <p>Das sind die zwei Möglichkeiten die ich gefunden habe</p>
+
+        <h3>TODO: Probiert aus, was passiert, wenn ein ganzer Ausdruck wie z.B. person.FirstName markiert wird.</h3>
+
+        <img src="person_firstName.JPG" alt="Firstname of person">
+
+        <p>Ich kann hier nichts besonderes feststellen.</p>
+
+        <h3>TODO: Schreibt Beispielcode, in dem eine innere Methode unter einer bestimmten Bedingung aus einer äußeren Methode aufgerufen wird.</h3>
+
+        <h3>TODO: Setzt einen Breakpoint in der inneren Methode und startet den Debugger</h3>
+
+        <h3>TODO: Betrachtet den Call-Stack und doppelklickt auf die äußere Methode.</h3>
+
+        <h3>TODO: Schaut Euch Variableninhalte und Ausdrücke im Kontext der äußeren Methode im Watch-Fenster an.</h3>
+
+        <img src="call_stack.JPG" alt="Callstack">
+
+        <p>Beim hovern über Variablen in der äußeren Methode werden deren Inhalte angezeigt</p>
+
+        <h3>TODO: Setzt einen Conditional-Breakpoint im Schleifenrumpf der Schleife aus dem ersten TODO</h3>
+
+        <img src="conditional_brackpoint.JPG" alt="Conditional breackpoint">
+
+        <p>Das ganze funktioniert ähnlich wie in C#. Man kann nach einem Rechtsklick auf den Breakpoint eine Bedingung angeben. Hier habe ich angegeben, dass der Debugger erst stoppen soll, wenn i > 2 ist</p>
+
+        <h3>TODO: Setzt einen Breakpoint im Schleifenrumpf der Schleife aus dem ersten TODO.</h3>
+
+        <h3>TODO: Verändert den Vornamen des aktuellen Person Objektes.</h3>
+
+        <h3>TODO: Überzeugt Euch durch Inspektion des Listen (bzw. Array)-Inhaltes, dass tatsächlich der Listen-Inhalte überschrieben wurde.</h3>
+
+        <img src="aendern_von_inhalten.JPG" alt="Chrome Debugger">
+
+        <p>Hier habe ich in einem Durchlauf den Inhalt des Strings: firstName geändert. Nach dem hinzufügen in den Array steht das Objekt auch mit dem entsprechenden Attributwert drin.</p>
+
+        <h3>TODO: für Fortgeschrittene: Warum kann nicht so einfach beim Debuggen das Geburtsdatum z.B. über die Änderung des im Variable-Fenster angezeigten Geburtsjahres verändert werden? Wie funktioniert es dennoch? Tipp: Im Debugger ausprobieren und die Referenzdoku und den Source-Code von DateTime ansehen. In welcher der vielen Eigenschaften sind überhaupt die eigentlichen Datums-Daten codiert?</h3>
+    
+        <p>Sehr gute Frage... Wie in C# auch funktioniert es in der Chrome Konsole nicht. Hat wohl damit zu tun, dass es ein Objekt aus der Standardlibrary ist. Keine Ahnung ob man das im Debugger verändern kann.</p>
+    
+        <h3>TODO: Erörtert Vorteile und Nachteile printf-Debugging vs. Debugger.</h3>
+
+        <h4>printf-Debugging</h4>
+
+        <p>Vorteile:</p>
+
+        <ul>
+            <li>Keine weiteren Kenntnisse über den Debugger nötig</li>
+            <li>Gut für kleiner Probleme (Keine Mehrfachaufrufe, Keine Schleifen, Keine Rekurion)</li>
+        </ul>
+
+        <p>Nachteile: </p>
+
+        <ul>
+            <li>Bei komplexeren Strukturen wird es in der Konsolen-Ausgabe recht unübersichtlich</li>
+            <li>Mehr Schreibarbeit</li>
+        </ul>
+
+        <h4>Debugger</h4>
+
+        <p>Vorteile</p>
+
+        <ul>
+            <li>Man kann den Durchgang des Codes individueller steuern</li>
+            <li>Man kann sich alle benötigten Varaibleninhalte anzeige lassen</li>
+        </ul>
+
+        <p>Nachteile</p>
+
+        <ul>
+            <li>Für Anfänger ist der Funktionsumfang zu groß</li>
+        </ul>
+
+        <h3>TODO: Wie können zeitabhängige Sachverhalte, z.B. in der Render-Schleife eines Game gedebuggt werden?</h3>
+
+        <p>Man kann das Auslösen eines Breakpoints sicher auch an ein Zeitevent koppeln.</p>
+    </section>
+</body>
+<script src="main.js"></script>
+</html>
