@@ -124,7 +124,7 @@ class Familytree {
         let ret: Person = null;
         if (person == null) // Dass musste ich noch einbauen, weil ich sonst eine nullpointer exception bekomme. Hier ist die Funktion: Pause on Exceptions sehr nützlich
             return null;
-        if (person.lastName == "Battenberg")
+        if (person.dateOfBirth.getFullYear() <= 1882 && person.dateOfBirth.getFullYear() >= 1880)
             return person;
         ret = Familytree.find(person.mom); //Warum muss ich hier den Klassennamen angeben. Ich ging davon aus, dass man das nur braucht wenn man eine static Methode außerhalb der entsprechenden Klasse aufruft. Im C# Code im Repo ist das auch so
         if (ret != null)
