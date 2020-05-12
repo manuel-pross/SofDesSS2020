@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Code</title>
+    <script src="main.js" defer async></script>
+</head>
+<body>
+
+    <h1>Clean Code</h1>
+
+    <section>
+
+        <h2>Naming</h2>
+
+        <p>
+            Der Autor bezeichnet die Benennung von Variablen, Parametern und Methoden als den wichtigsten Aspekt des Clean Coding.
+            In der Lektion 03 wird es nur als einer der wichtigsten Aspekte benannt. Auch er benutzt die lowerCamelCase Methode. Bei den Parametern setzt er nicht auf einen Suffix wie "ss_variable"
+            oder "_variable". Methoden sind bei ihm auch lowerCamelCase und bezeichnen mit Ihrem Namen die Funktionalität der
+            Methode.
+        </p>
+
+        <h2>Magic numbers</h2>
+
+        <p>
+            Im Vergleich zum Skript hält der Autor viel davon feste Zahlenwerte die einen Status ausdrücken (Bsp. NotRegistered =
+             1) in Form eines Enums zu definieren. Im Skript wird "nur" dazu geraten die solche Variablen entsprechend selbsterklärend
+             zu benennen.
+        </p>
+
+        <h2>More Readable</h2>
+
+        <p>
+            Der Autor des Artikels rät dazu, wenn möglich if-else if - Statements durch entsprechende switch-cases zu ersetzen.
+            Außerdem sollte man zu große Zuweisungen in Variablen zwischenspeichern. So ist der Code einfacher zu lesen.
+        </p>
+
+        <h3>Beispiel</h3>
+
+        <p>  
+            <pre>
+                <code class="TypeScript">
+
+                    //Schlecht
+                    priceAfterDiscount = (price - (0.5m * price)) - (discountForLoyaltyInPercentage * (price - (0.5m * price)));
+
+                    //Gut
+                    priceAfterDiscount = (price - (0.5m * price));
+                    priceAfterDiscount = priceAfterDiscount - (discountForLoyaltyInPercentage * priceAfterDiscount);
+                </code>
+            </pre>
+        </p>
+
+        <h4>Output</h4>
+
+        <p>  
+            <pre>
+                <code class="TypeScript">
+                </code>
+            </pre>
+        </p>
+
+        <h3>Erzeugt für folgende Klasse Person eine eigene ToString() Methode. Erzeugt eine Test-Routine, in einem Array fünf Instanzen von Person erzeugt und in einer Schleife alle Personen auf der Konsole ausgibt, die älter als 20 sind.</h3>
+
+        <p>  
+            <pre>
+                <code class="TypeScript">
+                    
+                </code>
+            </pre>
+        </p>
+
+        <h2>Not obvious bug</h2>
+
+        <p>
+            Der Autor des Artikels nimmt hier bezug auf Variablen, die durch Zahlenwerte bestimmte Status darstellen.
+            Für den Fall, dass eine solche Variable einen Wert annimmt den wir nicht definert haben. Soll eine entsprechende
+            Exception geworfen werden. Darauf legt der Autor des Skripts nicht so viel Wert.
+        </p>
+
+        <h2>Don't repeat yourself</h2>
+
+        <p>
+            Sowohl im Skript als auch im Artikel wird empfohlen Code-Schnipsel, die sich wiederholen in eigenen Methoden zu
+            verpacken. 
+        </p>
+    </section>
+    
+</body>
+</html>
