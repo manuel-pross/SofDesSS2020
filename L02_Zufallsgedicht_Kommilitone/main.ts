@@ -2,6 +2,7 @@ let subjects: string[] = ["Hermine", "Ron", "Dumbledore", "Hagrid", "McGonnegal"
 let objects: string[] = [" zaubert ", " bekämpft ", " liebt ", " zerstört ", " hasst ", " braut "];
 let verbs: string[] = ["Voldemort", "Flittwick", "Sprout", "Malfoy", "Bellatrix", "Zaubertränke"];
 
+//Warum ist das schon festgelegt ?
 let poem: string[] = Array(6);
 
 for (let i: number = 0; i < 6; i++) {
@@ -10,6 +11,8 @@ for (let i: number = 0; i < 6; i++) {
 console.log(poem);
 
 function getVerse(subjects: string[], objects: string[], verbs: string[]): string {
+    
+    //Nicht zu 100% ersichtlich, was das sein soll + Underscore eher weglassen
     let soon_Verse: string[] = Array(3);
 
     let randomSubjectInd: number = (Math.floor(Math.random() * subjects.length));
