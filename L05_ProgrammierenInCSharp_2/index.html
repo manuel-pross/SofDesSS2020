@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L05</title>
+    <script src="Main.js" defer async></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h1>Programmieren in C# aber eigentlich TypeScript</h1>
+
+    <section>
+
+        <h2>Sichtbarkeit</h2>
+
+        <h3>Legt wie oben eine Variable vom Typ Person an und instanziiert ein Objekt vom Typ Person mit new. Greift dann auf Name und Age zu.</h3>
+
+        <p>  
+            <pre>
+                <code class="TypeScript">
+                    class Person {
+                        public name: string;
+                        public age: number;
+                      
+                        constructor(_name: string, _age: number) { // Ist es in Typescript nötig einen Konstruktor zu erstellen. Wird nicht anhand der Attribute automatisch ein Standardkonstruktor generiert?
+                            this.name = _name;
+                            this.age = _age;
+                        }
+                      
+                        public GetTitleAdress(): string {
+                          if (this.age < 18)
+                            return "Hey " + this.name;
+                          else
+                            return "Sehr geehrte(r) " + this.name;
+                        }
+                      }
+                      
+                      let firstPerson: Person = new Person("Lauchgestalt", 99);
+                      
+                      console.log(firstPerson.name);
+                      console.log(firstPerson.age);
+                      
+                      //Output (name): Lauchgestalt
+                      //Output (age): 99
+                </code>
+            </pre>
+        </p>
+
+        <h3>Entfernt die public Kennzeichnung bei einem oder beiden Klassenbestandteilen und versucht, den Code zu kompilieren. Was passiert?</h3>
+
+        <p>Es passiert nichts. Man kann immer noch drauf zugreifen. Anscheinend ist der Access Modifier für Objektatrribute in TypeScript "public"</p>
+
+        <h3>Lest in der C#-Dokumentation nach, was die Zugriffsmodifizierer protected und internal bedeuten.</h3>
+
+        <ul>
+            <li>protected: Der Sichtbarkeitsbereich liegt innerhalb der Klasse und deren Nachfahren (Durch Vererbung gekennzeichnet)</li>
+            <li>internal: Gibt es als Accesmodifier in TS nicht. Verhält sich wohl änhnlich zu private</li>
+        </ul>
+
+        <h3>Auch eine Klasse selbst kann public sein. Was bedeutet das?</h3>
+
+        <p>
+            Das bedeutet, dass man von anderen Klassen oder der Main Methode (In C#) auf deren statische Methoden, Klassenvariablen und Konstruktor zugeifen kann.
+            Wäre sie nicht public könnte man von außen nur mithilfe einer Art return-funktion auf sie zugreifen. Gängig ist jedoch eine Klasse public zu machen und
+            deren Objektattribute protected oder private.
+        </p>
+
+    </section>
+    <section>
+        <h2>Vererbung</h2>
+
+        <h3>Legt einen Array von Person mit fünf Einträgen an und initialisiert diese Array-Einträge jeweils mit Instanzen von Person (mittels new Person...).</h3>
+
+        <h3>Ersetzt einige der Person Instanzen durch Employee Instanzen.</h3>
+
+        <p>  
+            <pre>
+                <code class="TypeScript">
+                    class Employee extends Person {
+                        public idNumber: number;
+                    
+                        constructor(_name: string, _age: number, _idNumber: number) {
+                            super(_name, _age); //Wusste nicht ob der Konstruktor jetzt die Attribute der Mutterklasse übernehmen soll
+                            this.idNumber = _idNumber;
+                        }
+                    }
+                    
+                    let personsArray: Person[] = new Array(5);
+                    personsArray[0] = new Person("Lauchgestalt", 99);
+                    personsArray[1] = new Person("Lasmirandadennsiewillja", 88);
+                    personsArray[2] = new Person("Lappen", 77);
+                    personsArray[3] = new Person("Killergnom", 66);
+                    personsArray[4] = new Person("Buttergolem", 55);
+                    
+                    personsArray[1] = new Employee("KörperClaudia", 44, 1);
+                    personsArray[3] = new Employee("PhotoshopPhilipp", 33, 2);
+                    personsArray[4] = new Employee("AfterEffectsAndreas", 22, 3);
+                </code>
+            </pre>
+        </p>
+
+        <h3>Initialisiert einen Array von Person mit Instanzen von Person, Female und Male.</h3>
+
+        <h3>Erzeugt eine Schleife über den Array und lasst von jedem Array-Eintrag die Anrede auf der Konsole ausgeben.</h3>
+
+        <h3>Überzeugt euch davon, dass in Abhängigkeit vom Typ der konkreten Instanz unterschiedliche Anreden ausgegeben werden, obwohl in der Schleife auf jedes einzelne Array-Element mit Variablen der gemeinsamen Basisklasse Person zugegriffen wird.</h3>
+
+        <p>Der Compiler erkennt anhand der Instanziierung des Objekts welcher Objektmethode welcher Klasse er ausführen muss.</p>
+    
+        <p>  
+            <pre>
+                <code class="TypeScript">
+                    class Female extends Person {
+                        public getTitleAdress(): string {
+                            return "Sehr geehrte Frau " + this.name;
+                        }
+                      }
+                      
+                      class Male extends Person {
+                        public getTitleAdress(): string {
+                            return "Sehr geehrter Herr " + this.name;
+                        }
+                      }
+                      
+                      let personsArray: (Person|Female|Male)[] = new Array(5);
+                      personsArray[0] = new Person("Lauchgestalt", 99);
+                      personsArray[1] = new Female("KörperClaudia", 88);
+                      personsArray[2] = new Male("MedikamentenManfred", 77);
+                      personsArray[3] = new Person("PhotoshopPhilipp", 66);
+                      personsArray[4] = new Male("AfterEffectsAndreas", 55);
+                      
+                      personsArray.forEach(element => {
+                          console.log(element.getTitleAdress());
+                      });                      
+                </code>
+            </pre>
+        </p>
+
+        <h3>Lest euch in abstracte Klassen und interfaces ein und implementiert o.g Beispiel mit einer der beiden Möglichkeiten.</h3>
+
+        <p>Ein Interface besteht nur aus abstrakten Methoden und es kann kein Objekt instanziiert werden. Eine abstrakte Klasse kann auch nicht-abstrakte Methoden enthalten. Auch von Ihr können keine Objekt instanziiert werden.</p>
+
+        <p>  
+            <pre>
+                <code class="TypeScript">        
+                    interface Person {
+
+                        name: string; //Warum kann ich hier keinen Accessmodifier angeben?
+                        age: number;
+                    
+                        //kann ich hier nicht irgendeine Art von abstraktem Konstruktor definieren den die Unterklassen per super() aufrufen?
+                    
+                        getTitleAdress(): string;
+                    
+                    }
+                    
+                    class Female implements Person {
+                    
+                        name: string; //Warum muss ich hier die Attribute nochmal aufschreiben? Ich implementiere doch das Interface in dem sie bekannt sind. Müssten sie dann hier nicht bekannt sein?
+                        age: number;
+                    
+                        constructor(_name: string, _age: number) {
+                            this.name = _name;
+                            this.age = _age;
+                        }
+                    
+                        public getTitleAdress(): string {
+                            return "Sehr geehrte Frau " + this.name;
+                        }
+                    }
+                    
+                    class Male implements Person {
+                        
+                        name: string;
+                        age: number;
+                    
+                        constructor(_name: string, _age: number) {
+                            this.name = _name;
+                            this.age = _age;
+                        }
+                    
+                        public getTitleAdress(): string {
+                            return "Sehr geehrter Herr " + this.name;
+                        }
+                    }         
+                </code>
+            </pre>
+        </p>
+
+        <h3>Macht euch klar, dass ihr dann keine Instanzen von Person (mit new) mehr anlegen könnt. Was passiert, wenn ihr es trotzdem versucht?</h3>
+
+        <img src="interface_error.JPG" alt="Error Message">
+
+        <h3>Legt mehrere Instanzen der obigen Klasse für die Speicherung unterschiedlicher Typen an, vor allem auch mit der selbst geschriebenen Klasse Person.</h3>
+
+        <p>  
+            <pre>
+                <code class="TypeScript">        
+                    class MyContainer {
+    
+                        private _theObjects: Object[]; //Code Conventions werden hier nicht eingehalten
+                        private size: number;
+                    
+                        constructor(_theObjects: Object[]) {
+                            this._theObjects = _theObjects; //Typecasting läuft wohl automatisch
+                            this.size = _theObjects.length; 
+                        }
+                    
+                        public add(_o: Object): void {
+                            let oldArray: Object[] = this._theObjects;
+                            this._theObjects = new Array(this.size + 1);
+                            for (let i: number = 0; i < this.size; i++) {
+                                this._theObjects[i] = oldArray[i];
+                            }
+                            this._theObjects[this._theObjects.length - 1] = _o;
+                            this.size++;
+                        }
+                
+                        public getAt(i: number): Object {
+                            return this._theObjects[i];
+                        }
+                
+                        public count(): number {
+                            return this.size;
+                        }
+                    }
+                
+                    let firstContainer: MyContainer = new MyContainer([2, new Male("Lauchgestalt", 99), new Female("Körperclaudia", 77)]);
+                    console.log(firstContainer);
+                    firstContainer.add(15);
+                    console.log(firstContainer);
+                    //Hier habe ich ein äußerst interessantes Verhalten. Wenn ich mit dem Debugger Schritt für Schritt durchgehe, dann hat die add-Methode keinen Einfluss auf die vorherige Ausgabe. Andersherumg schon.
+                </code>
+            </pre>
+        </p>
+
+        <h4>Output:</h4>
+
+        <img src="myContainer_output.JPG" alt="Output">
+
+        <h3>Was muss beim (lesenden) Zugriff auf Elemente passieren?</h3>
+
+        <p>
+            Es muss ein TypeCasting nach Object erfolgen. Das passiert automatisch wenn wir angegeben haben, dass der Array nur aus Objects bestehen soll.
+        </p>
+
+    </section>
+
+</body>
+</html>
