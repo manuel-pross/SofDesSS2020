@@ -150,15 +150,13 @@
                         name: string; //Warum kann ich hier keinen Accessmodifier angeben?
                         age: number;
                     
-                        //kann ich hier nicht irgendeine Art von abstraktem Konstruktor definieren den die Unterklassen per super() aufrufen?
-                    
                         getTitleAdress(): string;
                     
                     }
                     
                     class Female implements Person {
                     
-                        name: string; //Warum muss ich hier die Attribute nochmal aufschreiben? Ich implementiere doch das Interface in dem sie bekannt sind. Müssten sie dann hier nicht bekannt sein?
+                        name: string;
                         age: number;
                     
                         constructor(_name: string, _age: number) {
