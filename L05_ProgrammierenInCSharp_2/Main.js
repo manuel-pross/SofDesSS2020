@@ -4,6 +4,7 @@ var MeinZeug;
     let firstLection = document.querySelector("#first_lection");
     let secondLection = document.querySelector("#second_lection");
     let thirdLection = document.querySelector("#third_lection");
+    let fourthLection = document.querySelector("#fourth_lection");
     firstLection.addEventListener("click", function () {
         document.querySelector("#section-one").scrollIntoView();
     });
@@ -12,6 +13,9 @@ var MeinZeug;
     });
     thirdLection.addEventListener("click", function () {
         document.querySelector("#section-three").scrollIntoView();
+    });
+    fourthLection.addEventListener("click", function () {
+        document.querySelector("#section-four").scrollIntoView();
     });
     class Female {
         constructor(_name, _age) {

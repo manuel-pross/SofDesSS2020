@@ -3,6 +3,7 @@ namespace MeinZeug {
     let firstLection: HTMLButtonElement = document.querySelector("#first_lection");
     let secondLection: HTMLButtonElement = document.querySelector("#second_lection");
     let thirdLection: HTMLButtonElement = document.querySelector("#third_lection");
+    let fourthLection: HTMLButtonElement = document.querySelector("#fourth_lection");
 
     firstLection.addEventListener("click", function(): void {
         document.querySelector("#section-one").scrollIntoView();
@@ -14,6 +15,10 @@ namespace MeinZeug {
 
     thirdLection.addEventListener("click", function(): void {
         document.querySelector("#section-three").scrollIntoView();
+    });
+
+    fourthLection.addEventListener("click", function(): void {
+        document.querySelector("#section-four").scrollIntoView();
     });
 
     interface Person {
