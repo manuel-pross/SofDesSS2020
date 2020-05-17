@@ -30,3 +30,50 @@ hr {
 ul {
     list-style-type: square;
 }
+
+img {
+    max-width: 100%;
+}
+
+.sidenav {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform:translateY(-50%);
+    border: none;
+    background-color: #0088FF;
+    padding: 10px;
+    max-width: 50px;
+
+}
+
+.sidenav__button {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    transition: all .3s ease-in-out;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.sidenav__button:hover {
+    cursor: pointer;
+    background-color: #000;
+}
+
+.sidenav__button:last-child {
+    margin-bottom: 0;
+}
+
+.sidenav__button-text {
+    margin: 0;
+    font-size: 1.5em;
+    transition: all .3s ease-in-out;
+}
+
+.sidenav__button:hover .sidenav__button-text {
+    color: #FFF;
+}
+

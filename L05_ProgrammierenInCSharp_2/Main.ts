@@ -1,4 +1,21 @@
 namespace MeinZeug {
+
+    let firstLection: HTMLButtonElement = document.querySelector("#first_lection");
+    let secondLection: HTMLButtonElement = document.querySelector("#second_lection");
+    let thirdLection: HTMLButtonElement = document.querySelector("#third_lection");
+
+    firstLection.addEventListener("click", function(): void {
+        document.querySelector("#section-one").scrollIntoView();
+    });
+
+    secondLection.addEventListener("click", function(): void {
+        document.querySelector("#section-two").scrollIntoView();
+    });
+
+    thirdLection.addEventListener("click", function(): void {
+        document.querySelector("#section-three").scrollIntoView();
+    });
+
     interface Person {
 
         name: string; //Warum kann ich hier keinen Accessmodifier angeben?

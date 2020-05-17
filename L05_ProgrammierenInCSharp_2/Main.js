@@ -1,6 +1,18 @@
 "use strict";
 var MeinZeug;
 (function (MeinZeug) {
+    let firstLection = document.querySelector("#first_lection");
+    let secondLection = document.querySelector("#second_lection");
+    let thirdLection = document.querySelector("#third_lection");
+    firstLection.addEventListener("click", function () {
+        document.querySelector("#section-one").scrollIntoView();
+    });
+    secondLection.addEventListener("click", function () {
+        document.querySelector("#section-two").scrollIntoView();
+    });
+    thirdLection.addEventListener("click", function () {
+        document.querySelector("#section-three").scrollIntoView();
+    });
     class Female {
         constructor(_name, _age) {
             this.name = _name;
