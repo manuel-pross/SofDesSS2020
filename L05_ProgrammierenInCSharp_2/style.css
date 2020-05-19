@@ -51,6 +51,10 @@ img {
     margin-bottom: 15px;
 }
 
+.sidenav__button-wrapper:last-child {
+    margin-bottom: 0;
+}
+
 .sidenav__button {
     position: relative;
     width: 50px;
