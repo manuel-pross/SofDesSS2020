@@ -47,6 +47,10 @@ img {
 
 }
 
+.sidenav__button-wrapper {
+    margin-bottom: 15px;
+}
+
 .sidenav__button {
     position: relative;
     width: 50px;
@@ -55,7 +59,6 @@ img {
     border: none;
     transition: all .3s ease-in-out;
     padding: 0;
-    margin-bottom: 15px;
 }
 
 .sidenav__button:hover {
@@ -76,4 +79,42 @@ img {
 .sidenav__button:hover .sidenav__button-text {
     color: #FFF;
 }
+
+.sidenav__button-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .sidenav__button-wrapper .sidenav__tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .sidenav__button-wrapper .sidenav__tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 90%;
+    margin-left: -14px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .sidenav__button-wrapper:hover .sidenav__tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
 
