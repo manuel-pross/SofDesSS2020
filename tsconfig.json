@@ -10,7 +10,7 @@
       // "declaration": true, /*                   Generates corresponding '.d.ts' file. */
       // "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
       "sourceMap": true, /*                     Generates corresponding '.map' file. */
-      // "outFile": "../Build/FudgeCore.js", /*        Concatenate and emit output to single file. */
+      //"outFile": "L2_Quiz/MyScript.js", /*        Concatenate and emit output to single file. */
       // "outDir": "..",                         /* Redirect output structure to the directory. */
       // "sourceRoot": "./src/",
       // "rootDir": "./src/",                    /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
@@ -55,5 +55,5 @@
       // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
       "skipLibCheck": true
     },
-    "exclude": ["W19/*"]
+    "exclude": ["L01", "L02", "L02_moritz_konzept", "L02_ProgrammierenInCSharp_1", "L02_Zufallsgedicht", "L02_Zufallsgedicht_Kommilitone", "L03_Debugging", "L04_Clean_Code", "L05_Clean_Code", "L05_ProgrammierenInCSharp_2"]
   }
