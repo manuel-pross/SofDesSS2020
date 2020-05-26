@@ -82,7 +82,7 @@ function generateNewQuestion(): void {
     let newQuestion: Question = new Question(newQuestionText, new Array(answerCount));
 
     for (let i: number = 0; i < answerCount; i++) {
-        let newAnswerText: string = prompt("Wie lautet Ihre " + (i + 1) + " Antwort? (Markieren sie die richtige Antwort mit einem Leerzeichen und 'j' an letzter Stelle).\nZ.B: '14 j'\n Hinweis: Bei einer ungültigen Eingabe wird automatisch die '1' ausgewählt.)", "14 j");
+        let newAnswerText: string = prompt("Wi e lautet Ihre " + (i + 1) + " Antwort? (Markieren sie die richtige Antwort mit einem Leerzeichen und 'j' an letzter Stelle).\nZ.B: '14 j'\n Hinweis: Bei einer ungültigen Eingabe wird automatisch die '1' ausgewählt.)", "14 j");
         if (newAnswerText.slice(-2) == " j") {
             newAnswerText = newAnswerText.substring(0, newAnswerText.length - 2);
             newQuestion.possibleAnswers[i] = new Answer(newAnswerText, true);
