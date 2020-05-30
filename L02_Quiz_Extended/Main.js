@@ -10,13 +10,13 @@ class YesNoQuestion extends Question {
         this.isAnswerYes = _isAnswerYes;
     }
     compareWithUserAnswer(_userAnswer) {
-        if (_userAnswer == "j" && this.isAnswerYes)
+        if (_userAnswer == "y" && this.isAnswerYes)
             return true;
         else
             return false;
     }
     toString() {
-        return this.questionText + " (j/n)";
+        return this.questionText + " (y/n)";
     }
 }
 class EstimateQuestion extends Question {
@@ -43,10 +43,20 @@ class MultipleChoiceQuestion extends Question {
         super(_questionText);
         this.possibleAnswers = _possibleAnswers;
     }
+    validateNewQuestion() {
+        let correctAnswers = 0;
+        for (let i = 0; i < this.possibleAnswers.length; i++) {
+            if (this.possibleAnswers[i].getIsAnswerCorrect)
+                correctAnswers++;
+        }
+        if (correctAnswers <= 0) {
+            this.possibleAnswers[0].IsAnswerCorrect = true;
+        }
+    }
     compareWithUserAnswer(_userAnswers) {
         let areUserAnswersCorrect = true;
         let userAnswerAsArray = _userAnswers.split(",").map(function (_item) {
-            if (isNaN(parseInt(_item)))
+            if (!isNaN(parseInt(_item)))
                 return 0;
             else
                 return parseInt(_item);
@@ -58,20 +68,22 @@ class MultipleChoiceQuestion extends Question {
         }
         if (userAnswerAsArray.length != countCorrectAnswers)
             return false;
-        for (let i = 0; i < userAnswerAsArray.length; i++) {
-            if (this.possibleAnswers[userAnswerAsArray[i] - 1].getIsAnswerCorrect)
-                areUserAnswersCorrect = true;
-            else
-                areUserAnswersCorrect = false;
+        else {
+            for (let i = 0; i < userAnswerAsArray.length; i++) {
+                if (this.possibleAnswers[userAnswerAsArray[i] - 1].getIsAnswerCorrect)
+                    areUserAnswersCorrect = true;
+                else
+                    areUserAnswersCorrect = false;
+            }
+            return areUserAnswersCorrect;
         }
-        return areUserAnswersCorrect;
     }
     toString() {
-        let answersAsOneString = this.questionText + "\n";
+        let questionAsOneString = this.questionText + "\n";
         for (let i = 0; i < this.possibleAnswers.length; i++) {
-            answersAsOneString += "Antwort " + (i + 1) + ": " + this.possibleAnswers[i].answerText + "\n";
+            questionAsOneString += (i + 1) + ". " + this.possibleAnswers[i].answerText + "\n";
         }
-        return answersAsOneString + "\n Geben sie die Nummern der Antworten ein die sie für richtige halten (Bsp: 1,3)";
+        return questionAsOneString + "\nGeben sie die Nummern der Antworten ein die sie für richtige halten (Bsp: 1,3)";
     }
 }
 class FreeTextQuestion extends Question {
@@ -96,6 +108,9 @@ class Answer {
     }
     get getIsAnswerCorrect() {
         return this.isAnswerCorrect;
+    }
+    set IsAnswerCorrect(_isAnswerCorrect) {
+        this.isAnswerCorrect = _isAnswerCorrect;
     }
 }
 let preDefinedQuestions = [new YesNoQuestion("Ist Manuel Proß die geilste Sau unter der Sonne", true), new EstimateQuestion("Auf einer Skala von 1 - 10, wie geil ist Manuel Proß?", 10, 9), new MultipleChoiceQuestion("Welche Attribute bezüglich Manuel Proß treffen zu?", [new Answer("geil", true), new Answer("scheiße", false), new Answer("bescheiden", true), new Answer("kernbehindert", false)]), new FreeTextQuestion("Nenne die Eigenschaft die Manuel Proß am besten beschreibt!", "geil")];
@@ -129,7 +144,7 @@ function getUserChoice() {
     }
 }
 function generateNewQuestion() {
-    let choice = parseInt(prompt("Was für eine Art Frage wollen sie erstellen?\n1. Ja/Nein Frage\n2. Schätz Frage?\n3. Multiple Choice Frage?\n4.Freitext Frage\n(1/2/3/4)\n Hinweis: Bei Falscheingabe wird automatisch '4' ausgewählt", "4"));
+    let choice = parseInt(prompt("Was für eine Art Frage wollen sie erstellen?\n1. Ja/Nein Frage\n2. Schätz Frage?\n3. Multiple Choice Frage?\n4. Freitext Frage\n(1/2/3/4)\nHinweis: Bei Falscheingabe wird automatisch '4' ausgewählt", "4"));
     if (isNaN(choice) || choice > 4 || choice < 1)
         choice = 4;
     let newQuestionText = "";
@@ -171,6 +186,7 @@ function generateNewQuestion() {
                 else
                     newQuestion.possibleAnswers[i] = new Answer(newAnswerText, false);
             }
+            newQuestion.validateNewQuestion();
             preDefinedQuestions.push(newQuestion);
             break;
         default:

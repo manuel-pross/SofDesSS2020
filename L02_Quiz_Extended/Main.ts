@@ -17,14 +17,14 @@ class YesNoQuestion extends Question {
     }
 
     public compareWithUserAnswer(_userAnswer: string): boolean {
-        if (_userAnswer == "j" && this.isAnswerYes)
+        if (_userAnswer == "y" && this.isAnswerYes)
             return true;
         else
             return false;
     }
 
     public toString(): string {
-        return this.questionText + " (j/n)";
+        return this.questionText + " (y/n)";
     }
 }
 
@@ -61,10 +61,24 @@ class MultipleChoiceQuestion extends Question {
         this.possibleAnswers = _possibleAnswers;
     }
 
+    public validateNewQuestion(): void {
+        let correctAnswers: number = 0;
+
+        for (let i: number = 0; i < this.possibleAnswers.length; i++) {   
+            if (this.possibleAnswers[i].getIsAnswerCorrect)
+                correctAnswers++;    
+        }
+
+        if (correctAnswers <= 0) {
+            this.possibleAnswers[0].IsAnswerCorrect = true;
+        }
+
+    }
+
     public compareWithUserAnswer(_userAnswers: string): boolean {
         let areUserAnswersCorrect: boolean = true;
         let userAnswerAsArray: number[] = _userAnswers.split(",").map(function(_item: string): number {
-            if (isNaN(parseInt(_item)))
+            if (!isNaN(parseInt(_item)))
                 return 0;
             else 
                 return parseInt(_item);
@@ -79,25 +93,25 @@ class MultipleChoiceQuestion extends Question {
 
         if (userAnswerAsArray.length != countCorrectAnswers)
             return false;
-
-        for (let i: number = 0; i < userAnswerAsArray.length; i++) {
-            if (this.possibleAnswers[userAnswerAsArray[i] - 1].getIsAnswerCorrect)
-                areUserAnswersCorrect = true;
-            else
-                areUserAnswersCorrect = false;
+        else {
+            for (let i: number = 0; i < userAnswerAsArray.length; i++) {
+                if (this.possibleAnswers[userAnswerAsArray[i] - 1].getIsAnswerCorrect)
+                    areUserAnswersCorrect = true;
+                else
+                    areUserAnswersCorrect = false;
+            }   
+            return areUserAnswersCorrect;
         }
-
-        return areUserAnswersCorrect;
     }
 
     public toString(): string {
-        let answersAsOneString: string = this.questionText + "\n";
+        let questionAsOneString: string = this.questionText + "\n";
 
         for (let i: number = 0; i < this.possibleAnswers.length; i++) {
-            answersAsOneString += "Antwort " + (i + 1) + ": " + this.possibleAnswers[i].answerText + "\n";
+            questionAsOneString += (i + 1) + ". " + this.possibleAnswers[i].answerText + "\n";
         }
 
-        return answersAsOneString + "\n Geben sie die Nummern der Antworten ein die sie für richtige halten (Bsp: 1,3)";
+        return questionAsOneString + "\nGeben sie die Nummern der Antworten ein die sie für richtige halten (Bsp: 1,3)";
     }
 
 }
@@ -133,6 +147,10 @@ class Answer {
 
     get getIsAnswerCorrect(): boolean {
         return this.isAnswerCorrect;
+    }
+
+    set IsAnswerCorrect(_isAnswerCorrect: boolean) {
+        this.isAnswerCorrect = _isAnswerCorrect;
     }
 }
 
@@ -172,7 +190,7 @@ function getUserChoice(): void {
 }
 
 function generateNewQuestion(): void {
-    let choice: number = parseInt(prompt("Was für eine Art Frage wollen sie erstellen?\n1. Ja/Nein Frage\n2. Schätz Frage?\n3. Multiple Choice Frage?\n4. Freitext Frage\n(1/2/3/4)\n Hinweis: Bei Falscheingabe wird automatisch '4' ausgewählt", "4"));
+    let choice: number = parseInt(prompt("Was für eine Art Frage wollen sie erstellen?\n1. Ja/Nein Frage\n2. Schätz Frage?\n3. Multiple Choice Frage?\n4. Freitext Frage\n(1/2/3/4)\nHinweis: Bei Falscheingabe wird automatisch '4' ausgewählt", "4"));
 
     if (isNaN(choice) || choice > 4 || choice < 1)
         choice = 4;
@@ -225,6 +243,7 @@ function generateNewQuestion(): void {
                 newQuestion.possibleAnswers[i] = new Answer(newAnswerText, false);
             }
 
+            newQuestion.validateNewQuestion();
             preDefinedQuestions.push(newQuestion);
             break;
         default:
