@@ -44,33 +44,35 @@ class MultipleChoiceQuestion extends Question {
         this.possibleAnswers = _possibleAnswers;
     }
     validateNewQuestion() {
+        if (this.countCorrectAnswers() <= 0) {
+            this.possibleAnswers[0].IsAnswerCorrect = true;
+        }
+    }
+    countCorrectAnswers() {
         let correctAnswers = 0;
         for (let i = 0; i < this.possibleAnswers.length; i++) {
             if (this.possibleAnswers[i].getIsAnswerCorrect)
                 correctAnswers++;
         }
-        if (correctAnswers <= 0) {
-            this.possibleAnswers[0].IsAnswerCorrect = true;
-        }
+        return correctAnswers;
     }
     compareWithUserAnswer(_userAnswers) {
         let areUserAnswersCorrect = true;
         let userAnswerAsArray = _userAnswers.split(",").map(function (_item) {
-            if (!isNaN(parseInt(_item)))
-                return 0;
+            if (isNaN(parseInt(_item)) || parseInt(_item) <= 0)
+                return 500;
             else
-                return parseInt(_item);
+                return parseInt(_item) - 1;
         });
-        let countCorrectAnswers = 0;
-        for (let i = 0; i < this.possibleAnswers.length; i++) {
-            if (this.possibleAnswers[i].getIsAnswerCorrect)
-                countCorrectAnswers++;
-        }
-        if (userAnswerAsArray.length != countCorrectAnswers)
+        if (userAnswerAsArray.length != this.countCorrectAnswers())
+            return false;
+        if ((new Set(userAnswerAsArray)).size !== userAnswerAsArray.length)
             return false;
         else {
             for (let i = 0; i < userAnswerAsArray.length; i++) {
-                if (this.possibleAnswers[userAnswerAsArray[i] - 1].getIsAnswerCorrect)
+                if (userAnswerAsArray[i] >= this.possibleAnswers.length - 1)
+                    return false;
+                if (this.possibleAnswers[userAnswerAsArray[i]].getIsAnswerCorrect)
                     areUserAnswersCorrect = true;
                 else
                     areUserAnswersCorrect = false;
