@@ -1,0 +1,124 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    color: #0088FF;
+}
+
+pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 5px solid #f36d33;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding-top: 1.25em;
+    display: block;
+    word-wrap: break-word;
+}
+
+hr {
+    border: 1px solid #000;
+}
+
+ul {
+    list-style-type: square;
+}
+
+img {
+    max-width: 100%;
+}
+
+.sidenav {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform:translateY(-50%);
+    border: none;
+    background-color: #0088FF;
+    padding: 10px;
+    max-width: 50px;
+
+}
+
+.sidenav__button-wrapper {
+    margin-bottom: 15px;
+}
+
+.sidenav__button-wrapper:last-child {
+    margin-bottom: 0;
+}
+
+.sidenav__button {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    transition: all .3s ease-in-out;
+    padding: 0;
+}
+
+.sidenav__button:hover {
+    cursor: pointer;
+    background-color: #000;
+}
+
+.sidenav__button:last-child {
+    margin-bottom: 0;
+}
+
+.sidenav__button-text {
+    margin: 0;
+    font-size: 1.5em;
+    transition: all .3s ease-in-out;
+}
+
+.sidenav__button:hover .sidenav__button-text {
+    color: #FFF;
+}
+
+.sidenav__button-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .sidenav__button-wrapper .sidenav__tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .sidenav__button-wrapper .sidenav__tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 90%;
+    margin-left: -18px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .sidenav__button-wrapper:hover .sidenav__tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+

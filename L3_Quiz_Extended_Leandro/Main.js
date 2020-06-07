@@ -11,6 +11,7 @@ class YesNoQuestion extends Question {
         this.rightAnswer = _rightAnswer;
     }
     answersCheck() {
+        console.log("answersCheck()");
     }
 }
 class GuessQueston extends Question {
@@ -20,7 +21,7 @@ class GuessQueston extends Question {
         this.tolerance = _tolerance;
     }
     answersCheck() {
-        console.log("GuessQuestion answersCheck()");
+        console.log("GuessQuestion answercheck()");
     }
 }
 class NormalQuestion extends Question {

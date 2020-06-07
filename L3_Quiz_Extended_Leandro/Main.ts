@@ -33,8 +33,7 @@ class GuessQueston extends Question {
     }
 
     public answersCheck(): void {
-        let rightAnswer: number = 0;
-        let userAnswer: number = parseInt(prompt("Antwort", "1"));
+        console.log("GuessQuestion answercheck()");
     }
 }
 
