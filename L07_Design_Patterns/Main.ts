@@ -231,4 +231,4 @@ class ShareConsulter implements Observer {
 // while (iterator.hasMoreElements()) {
 //     console.log(iterator.current().value);
 //     console.log(iterator.next().value);
-}
+//}
