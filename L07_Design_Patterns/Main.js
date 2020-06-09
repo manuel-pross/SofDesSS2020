@@ -125,4 +125,25 @@ class ShareConsulter {
         return "Nothing to observe";
     }
 }
+// let share: Share = new Share();
+// let sharePriceDisplay: SharePriceDisplay =  new SharePriceDisplay(share);
+// let shareConsulter: ShareConsulter = new ShareConsulter(share);
+// share.registerObserver(sharePriceDisplay);
+// share.registerObserver(shareConsulter);
+// setTimeout(function(): void {
+//     share.setSharePrice(20);
+// },         2000);
+// setTimeout(function(): void {
+//     share.setSharePrice(30);
+// },         4000); // Manchmal geht mir TS aufn Sack... warum muss ich das so weit alignen?
+// setTimeout(function(): void {
+//     share.setSharePrice(60);
+// },         6000);
+// let wordsCollection: string[] = ["Lappen", "Lauch", "Hämpfling", "Schmalhans", "Körperclaudia", "AfterEffectsAndreas", "PhotoshopPhilipp", "IndesignIlse", "LightroomLukas", "IllustratorIrene"];
+// // tslint:disable-next-line: no-any
+// const iterator: any = wordsCollection[Symbol.iterator]; //Wusste mir hier nicht anders zu helfen als mit any...
+// while (iterator.hasMoreElements()) {
+//     console.log(iterator.current().value);
+//     console.log(iterator.next().value);
+//}
 //# sourceMappingURL=Main.js.map
