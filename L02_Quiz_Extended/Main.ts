@@ -1,8 +1,10 @@
 abstract class Question {
     public questionText: string;
+    public type: string;
 
-    constructor(_questionText: string) {
+    constructor(_questionText: string, _type: string) {
         this.questionText = _questionText;
+        this.type = _type;
     }
 
     public abstract compareWithUserAnswer(_userAnswer: string): boolean;
@@ -12,7 +14,7 @@ class YesNoQuestion extends Question {
     private isAnswerYes: boolean;
 
     constructor(_questionText: string, _isAnswerYes: boolean) {
-        super(_questionText);
+        super(_questionText, "YesNoQuestion");
         this.isAnswerYes = _isAnswerYes;
     }
 
@@ -33,7 +35,7 @@ class EstimateQuestion extends Question {
     private lowerLimit: number;
 
     constructor(_questionText: string, _upperLimit: number, _lowerLimit: number) {
-        super(_questionText);
+        super(_questionText, "EstimateQuestion");
         this.upperLimit = _upperLimit;
         this.lowerLimit = _lowerLimit;
     }
@@ -57,7 +59,7 @@ class MultipleChoiceQuestion extends Question {
     public possibleAnswers: Answer[];
 
     constructor(_questionText: string, _possibleAnswers: Answer[]) {
-        super(_questionText);
+        super(_questionText, "MulitpleChoiceQuestion");
         this.possibleAnswers = _possibleAnswers;
     }
 
@@ -119,7 +121,7 @@ class FreeTextQuestion extends Question {
     private answerText: string;
 
     constructor(_questionText: string, _answerText: string) {
-        super(_questionText);
+        super(_questionText, "FreeTextQuestion");
         this.answerText = _answerText;
     }
 
@@ -154,44 +156,69 @@ class Answer {
 }
 
 let questions: Question[] = [];
+let questionsCache: Question[] = [];
 let correctAnswers: number = 0;
 let questionsLength: number;
+startQuiz();
 
-fetch("./questions.json")
-    .then(function(resp) {
-        return resp.json();
-    })
-    .then(function(data) {
+async function startQuiz(): Promise<void> {
+    console.log("Start Load");
+    let data: any = await load("./questions.json");
+    console.log("Done Load");
+    console.log("Data: " + data);
+    getUserChoice();
+}
 
-        for (let i: number = 0; i < data.length; i++) {    
 
-            switch (data[i].type) {
-                case "YesNoQuestion":
-                    questions[i] = new YesNoQuestion(data[i].questionText, data[i].isAnswerYes);
-                    //customQuestion = Object.setPrototypeOf(data[i], YesNoQuestion.prototype);
-                    break;
-                case "EstimateQuestion":
-                    questions[i] = new EstimateQuestion(data[i].questionText, data[i].upperLimit, data[i].lowerLimit);
-                    break;
-                case "MultipleChoiceQuestion":
-                    let questionText: string = data[i].questionText;
-                    let newMultipleChoiceQuestion: MultipleChoiceQuestion = new MultipleChoiceQuestion(questionText, []);
-                    for (let j: number = 0; j < data[i].possibleAnswers.length; j++) {
-                        let answerText: string = data[i].possibleAnswers[j].answerText;
-                        let isAnswerCorrect: boolean = data[i].possibleAnswers[j].isAnswerCorrect;
-                        newMultipleChoiceQuestion.possibleAnswers.push(new Answer(answerText, isAnswerCorrect));
-                    }
-                    questions[i] = newMultipleChoiceQuestion;
-                    break;         
-                default:
-                    questions[i] = new FreeTextQuestion(data[i].questionText, data[i].answerText);
-                    break;
-            }
+
+async function load(_filename: string): Promise<void> {
+    console.log("Start Fetch");
+
+    let response: Response = await fetch("./questions.json");
+    let text: string = await response.text();
+    let jsonArray: any[] = JSON.parse(text);
+
+    for (let i: number = 0; i < jsonArray.length; i++) {    
+
+        switch (jsonArray[i].type) {
+            case "YesNoQuestion":
+                questions[i] = new YesNoQuestion(jsonArray[i].questionText, jsonArray[i].isAnswerYes);
+                break;
+            case "EstimateQuestion":
+                questions[i] = new EstimateQuestion(jsonArray[i].questionText, jsonArray[i].upperLimit, jsonArray[i].lowerLimit);
+                break;
+            case "MultipleChoiceQuestion":
+                let questionText: string = jsonArray[i].questionText;
+                let newMultipleChoiceQuestion: MultipleChoiceQuestion = new MultipleChoiceQuestion(questionText, []);
+                for (let j: number = 0; j < jsonArray[i].possibleAnswers.length; j++) {
+                    let answerText: string = jsonArray[i].possibleAnswers[j].answerText;
+                    let isAnswerCorrect: boolean = jsonArray[i].possibleAnswers[j].isAnswerCorrect;
+                    newMultipleChoiceQuestion.possibleAnswers.push(new Answer(answerText, isAnswerCorrect));
+                }
+                questions[i] = newMultipleChoiceQuestion;
+                break;         
+            default:
+                questions[i] = new FreeTextQuestion(jsonArray[i].questionText, jsonArray[i].answerText);
+                break;
         }
-        console.log(questions);
-        questionsLength = questions.length;
-        getUserChoice();
-    });
+    }
+    questionsCache = Array.from(questions);
+    questionsLength = questions.length;
+}
+
+function save(_content: string, _filename: string): void {
+    let blob: Blob = new Blob([_content], { type: "text/plain" });
+    let url: string = window.URL.createObjectURL(blob);
+    //*/ using anchor element for download
+    let downloader: HTMLAnchorElement;
+    downloader = document.createElement("a");
+    downloader.setAttribute("href", url);
+    downloader.setAttribute("download", _filename);
+    document.body.appendChild(downloader);
+    downloader.click();
+    document.body.removeChild(downloader);
+    window.URL.revokeObjectURL(url);
+  }
 
 function getUserChoice(): void {
     let choice: number = parseInt(prompt("1. Bestehende Frage beantworten?\n2. Neue Frage hinzufügen?\n3. Beenden?\n(1/2/3)", "1"));
@@ -206,6 +233,7 @@ function getUserChoice(): void {
             else {
                 console.log("Alle Fragen wurden beantwortet");
                 console.log("Richtig beantwortete Fragen: " + correctAnswers + " von " + questionsLength);
+                save(JSON.stringify(questionsCache), "questions.json");
             }
             break;
         case 2: 
@@ -214,6 +242,7 @@ function getUserChoice(): void {
             break;
         case 3:
             console.log("Richtig beantwortete Fragen: " + correctAnswers + " von " + questionsLength);
+            save(JSON.stringify(questionsCache), "questions.json");
             break;
         default:
             console.log("Inkorrekte Eingabe");
@@ -292,6 +321,9 @@ function generateNewQuestion(): void {
 function askQuestion(): void {
     let randomQuestionInd: number = Math.floor(Math.random() * questions.length);
     let randomQuestion: Question = questions[randomQuestionInd];
+
+    if (!JSON.stringify(questionsCache).includes(randomQuestion.questionText))
+        questionsCache.push(randomQuestion);
     questions.splice(randomQuestionInd, 1);
 
     let userAnswer: string = prompt(randomQuestion.toString(), "Ihre Antwort");
@@ -305,5 +337,3 @@ function askQuestion(): void {
 
     getUserChoice();
 }
-
-//console.log(questions);

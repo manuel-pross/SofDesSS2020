@@ -14,7 +14,7 @@
     },
 
     {
-        "questionText" : "Welche der folgenden Aussagen über Musashi Miyamoto ist wahr??",
+        "questionText" : "Welche der folgenden Aussagen über Musashi Miyamoto ist wahr?",
         "possibleAnswers": [
             {
                 "answerText": "Er kämpfte mit zwei Schwertern",
@@ -25,7 +25,7 @@
                 "isAnswerCorrect": false
             },
             {
-                "answerText": "Er kämpfte mit einem Speer",
+                "answerText": "Seine bevorzugte Waffe war der Speer",
                 "isAnswerCorrect": false
             },
             {
