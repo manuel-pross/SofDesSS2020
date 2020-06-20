@@ -79,5 +79,3 @@ child2.appendChild(grand22);
 
 console.log(root.printTree());
 
-console.log(root.search("grand13"));
-
