@@ -18,7 +18,7 @@ class TreeNode<T> {
                 this.childs.splice(i, 1);
     }
 
-    public printTree(_depth: number = 0): String {
+    public getTreeAsString(_depth: number = 0): String {
         let treeAsString: String = this.name + "\n";
         let depthAsString: String = "";
 
@@ -29,10 +29,14 @@ class TreeNode<T> {
         _depth++;
 
         for (let i: number = 0; i < this.childs.length; i++) {
-            treeAsString += "" +  this.childs[i].printTree(_depth);
+            treeAsString += "" +  this.childs[i].getTreeAsString(_depth);
         }
                 
         return treeAsString;
+    }
+
+    public printTree(): void {
+        console.log(this.getTreeAsString());
     }
 
     // public search(_pattern: T): TreeNode<T> {
@@ -77,5 +81,5 @@ root.appendChild(child2);
 grand21.appendChild(grand212);
 child2.appendChild(grand22);
 
-console.log(root.printTree());
+root.printTree();
 

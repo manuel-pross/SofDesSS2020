@@ -13,7 +13,7 @@ class TreeNode {
             if (_child === this.childs[i])
                 this.childs.splice(i, 1);
     }
-    printTree(_depth = 0) {
+    getTreeAsString(_depth = 0) {
         let treeAsString = this.name + "\n";
         let depthAsString = "";
         for (let i = 0; i < _depth; i++)
@@ -21,9 +21,12 @@ class TreeNode {
         treeAsString = "" + depthAsString + treeAsString;
         _depth++;
         for (let i = 0; i < this.childs.length; i++) {
-            treeAsString += "" + this.childs[i].printTree(_depth);
+            treeAsString += "" + this.childs[i].getTreeAsString(_depth);
         }
         return treeAsString;
+    }
+    printTree() {
+        console.log(this.getTreeAsString());
     }
 }
 class Tree {
@@ -50,5 +53,5 @@ child2.appendChild(grand21);
 root.appendChild(child2);
 grand21.appendChild(grand212);
 child2.appendChild(grand22);
-console.log(root.printTree());
+root.printTree();
 //# sourceMappingURL=Main.js.map
