@@ -51,5 +51,4 @@ root.appendChild(child2);
 grand21.appendChild(grand212);
 child2.appendChild(grand22);
 console.log(root.printTree());
-console.log(root.search("grand13"));
 //# sourceMappingURL=Main.js.map
