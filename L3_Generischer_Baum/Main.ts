@@ -66,7 +66,7 @@ class TreeNode<T> {
     }
 }
 
-class Tree<T> implements Subject{
+class Tree<T> implements Subject  {
     public nodes: TreeNode<T>[] = [];
     public observers: Observer[] = [];
 
@@ -116,7 +116,7 @@ tree.registerObserver(observer1);
 let child1: TreeNode<String> = tree.createNode("child1");
 let child2: TreeNode<String> = tree.createNode("child2");
 let grand11: TreeNode<String> = tree.createNode("grand11");
-let grand12: TreeNode<String> = tree.createNode("grand12");
+let grand12: TreeNode<String> = tree.createNode("grand12"); 
 let grand13: TreeNode<String> = tree.createNode("grand13");
 let grand21: TreeNode<String> = tree.createNode("grand21");
 let grand22: TreeNode<String> = tree.createNode("grand22");
