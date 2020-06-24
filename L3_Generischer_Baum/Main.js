@@ -74,7 +74,7 @@ function* iAmAGenerator(_tree) {
 }
 let tree = new Tree();
 let root = tree.createNode("root");
-const iterator = iAmAGenerator(tree);
+//const iterator: Iterator<String> = iAmAGenerator(tree);
 let observer1 = new TreeObserver();
 tree.registerObserver(observer1);
 let child1 = tree.createNode("child1");
@@ -93,7 +93,8 @@ child2.appendChild(grand21);
 root.appendChild(child2);
 grand21.appendChild(grand212);
 child2.appendChild(grand22);
-console.log(iterator.next());
+// console.log(iterator.next());
+// console.log(iterator.next());
 // root.printTree();
 // console.log(root.search(x => x.includes("212")));
 //# sourceMappingURL=Main.js.map
