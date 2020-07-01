@@ -36,7 +36,7 @@ while (true) {
 
     switch (opSymbol) {
         case "+":
-            console.log(Ops.add(left, right));       
+            console.log(Ops.add(left, right));    
             break;
         case "-":
             console.log(Ops.subtract(left, right));   
