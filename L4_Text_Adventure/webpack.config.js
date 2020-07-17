@@ -3,13 +3,34 @@ const path = require('path'); //Absoluter Pfad, in dem das bundle.js abgelegt we
 module.exports = {
     mode: 'development', //Damit werden wir eine nervige Warnung in der Kommandozeile los, die bei npm run build auftaucht
     devtool: 'eval-source-map', //Hier gibt man an welche Art von Source Maps man haben will. eval = gut für die Entwicklung
-    entry: './src/Main.ts', //Mit diesem File fängt der Compiler an
+    entry: ['./src/Main.ts', './src/styles/main.scss'], //Mit diesem File fängt der Compiler an
     module: {
         rules: [ //Mit folgender Regel geben wir an, dass wir ts-files in js-files compilieren wollen
             {
                 test: /\.ts$/, //Es wird getestet ob das jeweilige ts-file valide ist
                 use: 'ts-loader', //Falls ja, wird der ts-loader ausgeführt um es zu compilieren
                 include: [path.resolve(__dirname, 'src')] //Hier geben wir an wo unsere ts-files abgelegt sind
+            }, 
+            {
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].css',
+                            outputPath: 'css/'
+                        }
+                    },
+                    {
+                        loader: 'extract-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ],
             }
         ]
     },
