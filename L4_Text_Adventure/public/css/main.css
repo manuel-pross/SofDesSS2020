@@ -2,7 +2,8 @@ body {
     background-color: black;
     color: white;
     font-family: "Consolas";
-    font-size: 1.3rem; }
+    font-size: 1.3rem; 
+}
   
   input {
     border: none;
@@ -10,10 +11,13 @@ body {
     color: white;
     background-color: black;
     font-family: inherit;
-    font-size: inherit; }
-    input:focus {
-      outline: none; }
+    font-size: inherit; 
+}
+input:focus {
+    outline: none; 
+}
   
-  .custom__commands {
-    color: green; }
+.custom__commands {
+    color: green; 
+}
   
