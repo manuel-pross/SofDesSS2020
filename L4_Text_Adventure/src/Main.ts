@@ -1,4 +1,12 @@
-import { Ops } from "./Ops";
-import { Test } from "./Test";
+import { CustomConsole } from "./CustomConsole";
 
-Test.testing();
+namespace TextAdventure {
+
+    const customConsole: CustomConsole = CustomConsole.getInstance();
+
+    try {
+        customConsole.update("hello");  
+    } catch (error) {
+        alert(error.message);
+    }
+}
