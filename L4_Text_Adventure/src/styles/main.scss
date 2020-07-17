@@ -1,4 +1,26 @@
 body {
     background-color: black;
     color: white;
+    font-family: "Consolas";
+    font-size: 1.3rem;
+}
+
+input {
+    border: none;
+    width: 80%;
+    color: white;
+    background-color: black;
+    font-family: inherit;
+    font-size: inherit;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.custom {
+
+    &__commands {
+        color: green;
+    }
 }
