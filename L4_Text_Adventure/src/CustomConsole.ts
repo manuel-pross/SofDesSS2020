@@ -6,6 +6,7 @@ export class CustomConsole {
 
     private constructor() {
         window.addEventListener("click", this.focusInputField);
+        
         this.consoleInput?.addEventListener("keydown", this.handleInput);
     }
 
