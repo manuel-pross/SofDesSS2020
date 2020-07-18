@@ -1,8 +1,13 @@
-export class CustomConsole {
+import { Subject } from "./Subject";
+import { Observer } from "./Observer";
+
+export class CustomConsole implements Subject {
     private static instance: CustomConsole; //Ein Singleton macht hier Sinn, da ich nur eine Instanz der Klasse existieren soll
     public siteBody: HTMLBodyElement | null = document.querySelector("#body"); //Musste hier zusätzlich null als Typ mit angeben, weil es auch sein kann, dass kein body existiert
     public consoleText: HTMLElement | null = document.querySelector("#custom");
     public consoleInput: HTMLInputElement | null = document.querySelector("#customInput");
+    public observers: Observer[] = [];
+    private userInput: string = "";
 
     private constructor() {
         window.addEventListener("click", this.focusInputField);
@@ -20,6 +25,19 @@ export class CustomConsole {
     public update(_text: string): void {
         this.focusInputField();
         this.consoleText!.innerHTML = _text + "<p class=\"custom__commands\">commands(c), look(l), inventory(i), take(t) item, drop(d) item, quit(q)</p>";
+    }
+
+    public registerObserver(_observer: Observer): void {
+        this.observers.push(_observer);
+    }
+
+    public removeObserver(_observer: Observer): void {
+        this.observers.splice(this.observers.indexOf(_observer), 1);
+    }
+
+    public notifyObservers(): void {
+        for (let observer of this.observers)
+            observer.update(this.userInput);
     }
 
     private handleInput(_event: KeyboardEvent): string {
