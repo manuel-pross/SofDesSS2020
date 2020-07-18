@@ -11,7 +11,7 @@ namespace TextAdventure {
 
     customConsole.update("Willkommen zum Textadventure in der griechischen Mythologie. Du schlüpfst in die Rolle von Herakles und musst die ihm auferlegten Aufgaben von Eurystheus auferlegen Aufgaben meistern<br>Wir starten mit der Jagd nach auf den nemeischen Löwen in den lernäischen Wäldern.<br>Du stehst am Waldrand was willst du tun?"); 
 
-    let herakles: PlayableCharacter = new PlayableCharacter("Herakles, der größte Heros der griechischen Mythologie", 100, "Ich bin Herakles. Sohn des Zeus und der Alkmene", ["Holzkeule", "Pfeil und Bogen"]);
+    let herakles: PlayableCharacter = new PlayableCharacter("Herakles", "Sohn des Zeus und der Alkmene", 100, "Ich jage den nemeischen Löwen", ["Holzkeule", "Pfeil und Bogen"]);
 
     let level1: Level = new Level(
         [

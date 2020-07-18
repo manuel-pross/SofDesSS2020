@@ -3,8 +3,8 @@ import { Character } from "./Character";
 export class IntelligentCharacter extends Character {
     public inventory: string[];
 
-    constructor(_selfDescritpion: string, _health: number, _information: string, _inventory: string[]) {
-        super(_selfDescritpion, _health);
+    constructor(_name: string, _selfDescritpion: string, _health: number, _information: string, _inventory: string[]) {
+        super(_name, _selfDescritpion, _health);
         this.inventory = _inventory;
     }
 
