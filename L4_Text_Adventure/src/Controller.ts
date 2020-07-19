@@ -27,7 +27,16 @@ export class Controller implements Observer {
                 new Place("Felswand", [], [], true),
                 new Place("Felswand", [], [], true),
                 new Place("Felswand", [], [], true),
-                new Place("dichten Wald", [new PlayableCharacter("Herakles", "Sohn des Zeus und der Alkmene", 100, "Ich jage den nemeischen Löwen", ["Holzkeule", "Pfeil und Bogen"])], [], true),
+                new Place(" am Waldrand", 
+                          [
+                            new PlayableCharacter("Herakles", "Sohn des Zeus und der Alkmene", 100, "Ich jage den nemeischen Löwen", ["Holzkeule", "Pfeil und Bogen"], false), 
+                            new SimpleCharacter("einen Wolf", "Grrrrr. Wuff Wuff", 10, true)
+                            ], 
+                          [
+                            "eine Fackel"
+                            ], 
+                          true
+                        ),
                 new Place("Felswand", [], [], true),
                 new Place("Felswand", [], [], true),
                 new Place("Felswand", [], [], true),
@@ -124,17 +133,11 @@ export class Controller implements Observer {
         ]);
 
     public update(_userInput: string): void {
-        // if (_userInput == "start" || _userInput == "s")
-        //     this.startGame();
-        // // else {
-        // //     switch (_userInput) {
-        // //         case "look":
-                    
-        // //             break;
+        let placeDescription: string = "";
+        if (_userInput == "start" || _userInput == "s") {
+            //placeDescription += this.level1.getCharacterPosition().getFullDescription();
+            this.customConsole.updateTextfield(placeDescription);
             
-        // //         default:
-        // //             break;
-        // //     }
-        // // }
+        }
     }
 } 

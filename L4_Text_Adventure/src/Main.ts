@@ -8,4 +8,9 @@ import { Controller } from "./Controller";
 
 namespace TextAdventure {
     const controller: Controller = new Controller(); 
+    const customConsole: CustomConsole = CustomConsole.getInstance();
+
+    customConsole.registerObserver(controller);
+
+    customConsole.updateTextfield("Willkommen. Möchtest du starten?<p class=\"custom__commands\">start(s)</p>", true);
 }
