@@ -12,4 +12,16 @@ export class Place {
         this.items = _items;
         this.isPassable = _isPassable;
     }
+
+    public getFullDescription(): string {
+        let fullDescription: string = "Du befindest dich" + this.description + ". Du siehst:";
+        for (let item of this.items)
+            fullDescription += "<br>" + item;
+        for (let character of this.characters) {
+            if (character.isShown)
+                fullDescription += "<br>" + character.name;
+        }
+        fullDescription += "<br>Was willst du tun?";
+        return fullDescription;
+    }
 }

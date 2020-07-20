@@ -9,6 +9,7 @@ import { Observer } from "./Observer";
 export class Controller implements Observer {
 
     public customConsole: CustomConsole = CustomConsole.getInstance();
+    public mainCharacter: PlayableCharacter = new PlayableCharacter("Herakles", "Sohn des Zeus und der Alkmene", 100, "Ich jage den nemeischen Löwen", ["Holzkeule", "Pfeil und Bogen"], false);
     public level1: Level = new Level(
         [
             [   //firstRow
@@ -29,7 +30,7 @@ export class Controller implements Observer {
                 new Place("Felswand", [], [], true),
                 new Place(" am Waldrand", 
                           [
-                            new PlayableCharacter("Herakles", "Sohn des Zeus und der Alkmene", 100, "Ich jage den nemeischen Löwen", ["Holzkeule", "Pfeil und Bogen"], false), 
+                            this.mainCharacter,
                             new SimpleCharacter("einen Wolf", "Grrrrr. Wuff Wuff", 10, true)
                             ], 
                           [
@@ -135,9 +136,8 @@ export class Controller implements Observer {
     public update(_userInput: string): void {
         let placeDescription: string = "";
         if (_userInput == "start" || _userInput == "s") {
-            //placeDescription += this.level1.getCharacterPosition().getFullDescription();
+            placeDescription += this.level1.getCharacterPosition(this.mainCharacter).getFullDescription();
             this.customConsole.updateTextfield(placeDescription);
-            
         }
     }
 } 

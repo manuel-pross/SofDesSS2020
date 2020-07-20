@@ -1,4 +1,5 @@
 import { Place } from "./Place";
+import { Character } from "./Character";
 
 export class Level {
     public places: Place[][];
@@ -7,7 +8,7 @@ export class Level {
         this.places = _places;
     }
 
-    public getMainCharacterPosition(): Place {
+    public getCharacterPosition(_character: Character): Place {
         let horizontalPosition: number = 0;
         let vertikalPosition: number = 0;
         for (let i: number = 0; i < this.places.length; i++) {
@@ -15,7 +16,7 @@ export class Level {
             for (let j: number = 0; j < place.length; j++) {
                 if (place[j].characters[0] != null) {
                     for (let character of place[j].characters) {
-                        if (!character.isShown) {
+                        if (_character === character) {
                             horizontalPosition = i;
                             vertikalPosition = j;
                         }
