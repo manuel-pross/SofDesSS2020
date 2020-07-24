@@ -2,14 +2,15 @@ import { CustomConsole } from "./CustomConsole";
 import { Level } from "./Level";
 import { Place } from "./Place";
 import { SimpleCharacter } from "./SimpleCharacter";
-import { IntelligentCharacter } from "./IntelligentCharacter";
+import { Item } from "./Item";
 import { PlayableCharacter } from "./PlayableCharacter";
 import { Observer } from "./Observer";
 
 export class Controller implements Observer {
 
     public customConsole: CustomConsole = CustomConsole.getInstance();
-    public mainCharacter: PlayableCharacter = new PlayableCharacter("Herakles", "Sohn des Zeus und der Alkmene", 100, "Ich jage den nemeischen Löwen", ["Holzkeule", "Pfeil und Bogen"], false);
+    public items: Item[] = [new Item("Holzkeule", "eine Holzkeule"), new Item("Pfeil und Bogen", "Pfeil und Bogen"), new Item("Fackel", "eine Fackel")];
+    public mainCharacter: PlayableCharacter = new PlayableCharacter("Herakles", "Sohn des Zeus und der Alkmene", 100, "Ich jage den nemeischen Löwen", [this.items[0], this.items[1]], false);
     public level1: Level = new Level(
         [
             [   //firstRow
@@ -34,7 +35,7 @@ export class Controller implements Observer {
                             new SimpleCharacter("einen Wolf", "Grrrrr. Wuff Wuff", 10, true)
                             ], 
                           [
-                            "eine Fackel"
+                            this.items[2]
                             ], 
                           true
                         ),
