@@ -5,6 +5,7 @@ import { SimpleCharacter } from "./SimpleCharacter";
 import { Item } from "./Item";
 import { PlayableCharacter } from "./PlayableCharacter";
 import { Observer } from "./Observer";
+import { Direction } from "./Direction";
 
 export class Controller implements Observer {
 
@@ -26,9 +27,9 @@ export class Controller implements Observer {
             ],
             [   //secondRow
                 new Place("Felswand", [], [], false),
-                new Place("Felswand", [], [], true),
-                new Place("Felswand", [], [], true),
-                new Place("Felswand", [], [], true),
+                new Place("Felswand", [], [], false),
+                new Place("Felswand", [], [], false),
+                new Place("Felswand", [], [], false),
                 new Place(" am Waldrand", 
                           [
                             this.mainCharacter,
@@ -39,9 +40,9 @@ export class Controller implements Observer {
                             ], 
                           true
                         ),
-                new Place("Felswand", [], [], true),
-                new Place("Felswand", [], [], true),
-                new Place("Felswand", [], [], true),
+                new Place("Felswand", [], [], false),
+                new Place("Felswand", [], [], false),
+                new Place("Felswand", [], [], false),
                 new Place("Felswand", [], [], false)
             ],
             [   //thirdRow
@@ -134,11 +135,6 @@ export class Controller implements Observer {
             ]
         ]);
 
-    public update(_userInput: string): void {
-        let placeDescription: string = "";
-        if (_userInput == "start" || _userInput == "s") {
-            placeDescription += this.level1.getCharacterPosition(this.mainCharacter).getFullDescription();
-            this.customConsole.updateTextfield(placeDescription);
+        public update(_userInput: string): void {
         }
-    }
 } 
