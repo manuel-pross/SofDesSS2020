@@ -17,19 +17,12 @@ export class Place {
     public getFullDescription(): string {
         let fullDescription: string = "Du befindest dich" + this.description + ". Du siehst:";
         for (let item of this.items)
-            fullDescription += "<br>" + item;
+            fullDescription += "<br>" + item.description;
         for (let character of this.characters) {
             if (character.isShown)
                 fullDescription += "<br>" + character.name;
         }
         fullDescription += "<br>Was willst du tun?";
         return fullDescription;
-    }
-
-    public removeItem(_item: Item): void {
-        for (let i: number = 0; i < this.items.length; i++) {
-            if (_item === this.items[i])
-                this.items.splice(i, 0);
-        }
     }
 }

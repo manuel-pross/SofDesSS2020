@@ -22,14 +22,10 @@ export class CustomConsole implements Subject {
         return CustomConsole.instance;
     }
 
-    public updateTextfield(_text: string, _isGreeting: boolean = false): void {
+    public updateTextfield(_text: string): void {
         this.focusInputField();
         this.consoleText = document.querySelector("#custom");
-        this.consoleText!.innerHTML = "";
-        if (!_isGreeting)
-            this.consoleText!.innerHTML = _text + "<p class=\"custom__commands\">commands(c), look(l), inventory(i), take(t) item, drop(d) item, quit(q)</p>";
-        else
-            this.consoleText!.innerHTML = _text;
+        this.consoleText!.innerHTML = _text;
     }
 
     public registerObserver(_observer: Observer): void {

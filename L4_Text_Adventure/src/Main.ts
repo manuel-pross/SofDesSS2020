@@ -12,5 +12,5 @@ namespace TextAdventure {
 
     customConsole.registerObserver(controller);
 
-    customConsole.updateTextfield("Willkommen. Möchtest du starten?<p class=\"custom__commands\">start(s)</p>", true);
+    customConsole.updateTextfield("Willkommen. Möchtest du starten?<p class=\"custom__commands\">start(s)</p>");
 }
