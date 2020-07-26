@@ -25,4 +25,11 @@ export class Place {
         fullDescription += "<br>Was willst du tun?";
         return fullDescription;
     }
+
+    public removeItem(_itemName: string): void {
+        for (let i: number = 0; i < this.items.length; i++) {
+            if (_itemName.toUpperCase === this.items[i].name.toUpperCase)
+                this.items.splice(i, 1);
+        }
+    }
 }
