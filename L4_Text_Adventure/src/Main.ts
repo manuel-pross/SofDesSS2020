@@ -3,7 +3,6 @@ import { Level } from "./Level";
 import { Place } from "./Place";
 import { SimpleCharacter } from "./SimpleCharacter";
 import { IntelligentCharacter } from "./IntelligentCharacter";
-import { PlayableCharacter } from "./PlayableCharacter";
 import { Controller } from "./Controller";
 
 namespace TextAdventure {
