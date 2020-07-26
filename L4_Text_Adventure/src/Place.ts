@@ -15,7 +15,7 @@ export class Place {
     }
 
     public getFullDescription(): string {
-        let fullDescription: string = "Du befindest dich" + this.description + ". Du siehst:";
+        let fullDescription: string = "Du befindest dich " + this.description + ". Du siehst:";
         for (let item of this.items)
             fullDescription += "<br>" + item.description;
         for (let character of this.characters) {
@@ -30,6 +30,13 @@ export class Place {
         for (let i: number = 0; i < this.items.length; i++) {
             if (_itemName.toUpperCase === this.items[i].name.toUpperCase)
                 this.items.splice(i, 1);
+        }
+    }
+
+    public removeCharacter(_characterName: string): void {
+        for (let i: number = 0; i < this.characters.length; i++) {
+            if (_characterName.toUpperCase === this.characters[i].name.toUpperCase)
+                this.characters.splice(i, 1);
         }
     }
 }
