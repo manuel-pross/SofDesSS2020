@@ -26,11 +26,14 @@ export class Place {
         return fullDescription;
     }
 
-    public removeItem(_itemName: string): void {
+    public removeItem(_itemName: string): Item|null {
+        let removedItem: Item|null = null;
         for (let i: number = 0; i < this.items.length; i++) {
-            if (_itemName.toUpperCase === this.items[i].name.toUpperCase)
-                this.items.splice(i, 1);
+            if (_itemName.toUpperCase === this.items[i].name.toUpperCase) {
+                removedItem = this.items.splice(i, 1)[0];
+            }
         }
+        return removedItem;
     }
 
     public removeCharacter(_characterName: string): void {

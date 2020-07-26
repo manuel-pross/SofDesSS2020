@@ -8,23 +8,6 @@ export class IntelligentCharacter extends Character {
         super(_name, _selfDescritpion, _health, _isShown);
         this.inventory = _inventory;
     }
-
-    public walk(_direction: string): void {
-        console.log("walk" + _direction);
-    }
-
-    public take(_item: string): void {
-        console.log("take" + _item);
-    }
-
-    public drop(_item: string): void {
-        console.log("drop" + _item);
-    }
-
-    public showInventory(): string {
-        return "inventory";
-    }
-
     public attack(_character: Character): void {
         console.log("attack");
     }
