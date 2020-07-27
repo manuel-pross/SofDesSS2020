@@ -10,7 +10,7 @@ export class Inventory {
     public getInventory(): string {
         let itemsAsString: string = "";
         for (let item of this.items) {
-            itemsAsString += item.name;
+            itemsAsString += "<br>" + item.description;
         }
         return itemsAsString;
     }

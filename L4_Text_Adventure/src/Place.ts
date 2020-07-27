@@ -15,7 +15,7 @@ export class Place {
     }
 
     public getFullDescription(): string {
-        let fullDescription: string = "Du befindest dich " + this.description + ". Du siehst:";
+        let fullDescription: string = "Du befindest dich " + this.description + ". Du siehst:" + this.items.getInventory();
         for (let character of this.characters) {
             if (character.isShown)
                 fullDescription += "<br>" + character.name;

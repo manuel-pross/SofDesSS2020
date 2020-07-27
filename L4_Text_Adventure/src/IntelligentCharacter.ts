@@ -1,10 +1,10 @@
 import { Character } from "./Character";
-import { Item } from "./Item";
+import { Inventory} from "./Inventory";
 
 export class IntelligentCharacter extends Character {
-    public inventory: Item[];
+    public inventory: Inventory;
 
-    constructor(_name: string, _selfDescritpion: string, _health: number, _information: string, _inventory: Item[], _isShown: boolean) {
+    constructor(_name: string, _selfDescritpion: string, _health: number, _information: string, _inventory: Inventory, _isShown: boolean) {
         super(_name, _selfDescritpion, _health, _isShown);
         this.inventory = _inventory;
     }
