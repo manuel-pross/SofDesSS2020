@@ -1,0 +1,472 @@
+{
+    "places" : [ 
+                [
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false}
+                ],
+                [
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "am", "description" : "Waldrand", "characters": [{
+                        "namePrefix": "der legendäre", 
+                        "name" : "Herakles", 
+                        "selfDescription" : "Sohn des Zeus und der Alkmene", 
+                        "health" : 20, 
+                        "basicAttack" : 10, 
+                        "basicDefense" : 1, 
+                        "information" : "Ich jage den nemeischen Löwen", 
+                        "inventory" : {
+                            "items" : [{
+                                "namePrefix" : "eine",
+                                "name" : "Holzkeule",
+                                "description" : "Die bevorzugte Waffe von Herakles",
+                                "type" : "attack",
+                                "attributeValue" : 5
+                            }, {
+                                "namePrefix" : "ein",
+                                "name" : "Heiltrank",
+                                "description" : "Stellt Leben wieder her",
+                                "type" : "healing",
+                                "attributeValue" : 10
+                            }]
+                        },
+                        "isShown" : false,
+                        "isMovingIndependently" : false,
+                        "wantsToTrade" : false,
+                        "characterType" : "IntelligentCharacter"
+                    }, {
+                        "namePrefix": "eine verängstigte", 
+                        "name" : "Frau", 
+                        "selfDescription" : "Hilfe! Hilfe!", 
+                        "health" : 0, 
+                        "basicAttack" : 0, 
+                        "basicDefense" : 0, 
+                        "information" : "Ich habe das Monster gesehen. Tief im Wald. Es ist so groß wie ein Elefant. Hier das wird dir helfen", 
+                        "inventory" : {
+                            "items" : [{
+                                "namePrefix" : "ein",
+                                "name" : "Heiltrank",
+                                "description" : "Stellt Leben wieder her",
+                                "type" : "healing",
+                                "attributeValue" : 10
+                            }]
+                        },
+                        "isShown" : true,
+                        "isMovingIndependently" : false,
+                        "wantsToTrade" : true,
+                        "characterType" : "IntelligentCharacter"
+                    }, 
+                    {
+                        "namePrefix": "einen", 
+                        "name" : "Wolf", 
+                        "selfDescription" : "Grrrrrrrr!", 
+                        "health" : 7, 
+                        "basicAttack" : 2, 
+                        "basicDefense" : 0, 
+                        "isShown" : true,
+                        "characterType" : "SimpleCharacter"
+                    }], 
+                    "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false}
+                ],
+                [
+                    {"descriptionPrefix": "am Rande vom", "description" : "Sumpf", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [{
+                        "namePrefix": "ein", 
+                        "name" : "Wildschwein", 
+                        "selfDescription" : "Grunz!", 
+                        "health" : 5, 
+                        "basicAttack" : 2, 
+                        "basicDefense" : 2, 
+                        "isShown" : true,
+                        "characterType" : "SimpleCharacter"
+                    }], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichtem Wald", "characters": [{
+                        "namePrefix": "einen schnaubenden", 
+                        "name" : "Zentauren", 
+                        "selfDescription" : "Verschwinde aus meinem Wald!", 
+                        "health" : 15, 
+                        "basicAttack" : 6, 
+                        "basicDefense" : 2, 
+                        "information" : "Ich habe dir nichts zu sagen", 
+                        "inventory" : {
+                            "items" : [{
+                                "namePrefix" : "einen",
+                                "name" : "Jagdspeer",
+                                "description" : "Standardwaffe eines Zentauren",
+                                "type" : "attack",
+                                "attributeValue" : 5
+                            }]
+                        },
+                        "isShown" : true,
+                        "isMovingIndependently" : true,
+                        "wantsToTrade" : false,
+                        "characterType" : "IntelligentCharacter"
+                    }], 
+                    "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [{
+                        "namePrefix": "eine", 
+                        "name" : "Harpyie", 
+                        "selfDescription" : "Kraaaaa!", 
+                        "health" : 15, 
+                        "basicAttack" : 8, 
+                        "basicDefense" : 2, 
+                        "isShown" : true,
+                        "characterType" : "SimpleCharacter"
+                    }], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [{
+                        "namePrefix": "eine", 
+                        "name" : "Chimäre", 
+                        "selfDescription" : "Fauch!", 
+                        "health" : 20, 
+                        "basicAttack" : 17, 
+                        "basicDefense" : 8, 
+                        "information" : "Ächz!", 
+                        "inventory" : {
+                            "items" : []
+                        },
+                        "isShown" : true,
+                        "isMovingIndependently" : true,
+                        "wantsToTrade" : false,
+                        "characterType" : "IntelligentCharacter"
+                    }], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [{
+                        "namePrefix": "einen", 
+                        "name" : "Zyklop", 
+                        "selfDescription" : "ÄÄhhheuu?", 
+                        "health" : 30, 
+                        "basicAttack" : 12, 
+                        "basicDefense" : 5, 
+                        "isShown" : true,
+                        "characterType" : "SimpleCharacter"
+                    }], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "am Ufer vom", "description" : "Meer", "characters": [], "inventory": { "items" : []}, "isPassable" : false}
+                ],
+                [
+                    {"descriptionPrefix": "am Rande vom", "description" : "Sumpf", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [{
+                        "namePrefix": "einen", 
+                        "name" : "Satyr", 
+                        "selfDescription" : "Hinfort!", 
+                        "health" : 6, 
+                        "basicAttack" : 3, 
+                        "basicDefense" : 0, 
+                        "information" : "Ich habe dir nichts zu sagen", 
+                        "inventory" : {
+                            "items" : [{
+                                "namePrefix" : "einen",
+                                "name" : "Stahldolch",
+                                "description" : "Waffe mit kurzer Reichweite",
+                                "type" : "attack",
+                                "attributeValue" : 2
+                            }]
+                        },
+                        "isShown" : true,
+                        "isMovingIndependently" : true,
+                        "wantsToTrade" : false,
+                        "characterType" : "IntelligentCharacter"
+                    }], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [{
+                        "namePrefix": "eine", 
+                        "name" : "Gorgone", 
+                        "selfDescription" : "Bääääähh!", 
+                        "health" : 35, 
+                        "basicAttack" : 15, 
+                        "basicDefense" : 5, 
+                        "isShown" : true,
+                        "characterType" : "SimpleCharacter"
+                    }], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichtem Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "am Ufer vom", "description" : "Meer", "characters": [], "inventory": { "items" : []}, "isPassable" : false}
+                ],
+                [
+                    {"descriptionPrefix": "am Rande vom", "description" : "Sumpf", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichtem Wald", "characters": [{
+                        "namePrefix": "eine alter", 
+                        "name" : "Jäger", 
+                        "selfDescription" : "He! He du da!", 
+                        "health" : 0, 
+                        "basicAttack" : 0, 
+                        "basicDefense" : 0, 
+                        "information" : "Ich habe das Monster bisher nur einmal gesehen. Es hat die Kraft eines Titanen und sieht aus als hätte Hades selbst es erschaffen. Hier dieser Talisman wird dich schützen.", 
+                        "inventory" : {
+                            "items" : [{
+                                "namePrefix" : "ein",
+                                "name" : "alter Talisman",
+                                "description" : "Der alte Jäger gab in mir.",
+                                "type" : "defense",
+                                "attributeValue" : 2
+                            }]
+                        },
+                        "isShown" : true,
+                        "isMovingIndependently" : false,
+                        "wantsToTrade" : true,
+                        "characterType" : "IntelligentCharacter"
+                    }], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "einen schweren ",
+                        "name" : "Aspis-Schild",
+                        "description" : "Schweres Schild. Gehört zur Grundausstattung jedes spartanischen Hopliten",
+                        "type" : "defense",
+                        "attributeValue" : 5
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "am Ufer vom", "description" : "Meer", "characters": [], "inventory": { "items" : []}, "isPassable" : false}
+                ],
+                [
+                    {"descriptionPrefix": "am Rande vom", "description" : "Sumpf", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichtem Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "einen",
+                        "name" : "Kopis",
+                        "description" : "Schweres Einhandschwert. Jeder griechische Soldat besitzt so eine Waffe",
+                        "type" : "attack",
+                        "attributeValue" : 5
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "am Ufer vom", "description" : "Meer", "characters": [], "inventory": { "items" : []}, "isPassable" : false}
+                ],
+                [
+                    {"descriptionPrefix": "am Rande vom", "description" : "Sumpf", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichtem Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [{
+                        "namePrefix": "einen", 
+                        "name" : "Basilisk", 
+                        "selfDescription" : "Sssssssssssssssssss!", 
+                        "health" : 27, 
+                        "basicAttack" : 16, 
+                        "basicDefense" : 10, 
+                        "information" : "Zisch!", 
+                        "inventory" : {
+                            "items" : [{
+                                "namePrefix" : "ein",
+                                "name" : "Flaschengift",
+                                "description" : "Dieses Basiliskengift ist äußerst potent",
+                                "type" : "attack",
+                                "attributeValue" : 7
+                            }]
+                        },
+                        "isShown" : true,
+                        "isMovingIndependently" : true,
+                        "wantsToTrade" : false,
+                        "characterType" : "IntelligentCharacter"
+                    }], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "am Ufer vom", "description" : "Meer", "characters": [], "inventory": { "items" : []}, "isPassable" : false}
+                ],
+                [
+                    {"descriptionPrefix": "am Rande vom", "description" : "Sumpf", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichtem Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [{
+                        "namePrefix": "den nemeischen", 
+                        "name" : "Löwen", 
+                        "selfDescription" : "Grroooahhr", 
+                        "health" : 100, 
+                        "basicAttack" :20, 
+                        "basicDefense" : 10, 
+                        "information" : "Krepier!", 
+                        "inventory" : {
+                            "items" : [{
+                                "namePrefix" : "des nemeischen Löwen",
+                                "name" : "Fell",
+                                "description" : "Die Trophäe des Ungetüms aus den lernäischen Wäldern",
+                                "type" : "defense",
+                                "attributeValue" : 7
+                            }]
+                        },
+                        "isShown" : true,
+                        "isMovingIndependently" : false,
+                        "wantsToTrade" : false,
+                        "characterType" : "IntelligentCharacter"
+                    }], 
+                    "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "am Ufer vom", "description" : "Meer", "characters": [], "inventory": { "items" : []}, "isPassable" : false}
+                ],
+                [
+                    {"descriptionPrefix": "am Rande vom", "description" : "Sumpf", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichtem Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "im", "description" : "dichten Wald", "characters": [{
+                        "namePrefix": "einen großen", 
+                        "name" : "Minotauren", 
+                        "selfDescription" : "Hroar!", 
+                        "health" : 20, 
+                        "basicAttack" : 7, 
+                        "basicDefense" : 0, 
+                        "information" : "Brüll", 
+                        "inventory" : {
+                            "items" : [{
+                                "namePrefix" : "eine schwere",
+                                "name" : "Doppelaxt",
+                                "description" : "Standardwaffe eines Mintauren",
+                                "type" : "attack",
+                                "attributeValue" : 10
+                            }]
+                        },
+                        "isShown" : true,
+                        "isMovingIndependently" : false,
+                        "wantsToTrade" : false,
+                        "characterType" : "IntelligentCharacter"
+                    }], "inventory": { "items" : []}, "isPassable" : true},
+                    {"descriptionPrefix": "am Ufer vom", "description" : "Meer", "characters": [], "inventory": { "items" : []}, "isPassable" : false}
+                ],
+                [
+                    {"descriptionPrefix": "an einer", "description" : "steilen Felswand", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "an einer", "description" : "steilen Felswand", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "an einer", "description" : "steilen Felswand", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "an einer", "description" : "steilen Felswand", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "an einer", "description" : "steilen Felswand", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "an einer", "description" : "steilen Felswand", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "an einer", "description" : "steilen Felswand", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "an einer", "description" : "steilen Felswand", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
+                    {"descriptionPrefix": "an einer", "description" : "steilen Felswand", "characters": [], "inventory": { "items" : []}, "isPassable" : false}
+                ]
+               ]
+} 

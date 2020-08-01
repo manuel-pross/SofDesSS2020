@@ -4,14 +4,13 @@ import { Observer } from "./Observer";
 export class CustomConsole implements Subject {
     private static instance: CustomConsole; //Ein Singleton macht hier Sinn, da ich nur eine Instanz der Klasse existieren soll
     private static userInput: string = ""; // Musste das static machen, weil sonst bei der ausführung von update() der string wieder auf "" ist
-    public siteBody: HTMLBodyElement | null = document.querySelector("#body"); //Musste hier zusätzlich null als Typ mit angeben, weil es auch sein kann, dass kein body existiert
     public consoleText: HTMLElement | null = document.querySelector("#custom");
-    public consoleInput: HTMLInputElement | null = document.querySelector("#customInput");
+    public consoleBody: HTMLBodyElement | null = document.querySelector("#body");
     public observers: Observer[] = [];
+    private consoleInput: HTMLInputElement | null = document.querySelector("#customInput"); 
 
     private constructor() {
         window.addEventListener("click", this.focusInputField);
-        
         this.consoleInput?.addEventListener("keydown", this.handleInput);
     }
 
@@ -39,6 +38,11 @@ export class CustomConsole implements Subject {
     public notifyObservers(): void {
         for (let observer of this.observers)
             observer.update(CustomConsole.userInput);
+    }
+
+    public disabeleInputField(): void {
+        this.consoleInput = document.querySelector("#customInput");
+        this.consoleInput!.disabled = true;
     }
 
     private handleInput(_event: KeyboardEvent): void {
