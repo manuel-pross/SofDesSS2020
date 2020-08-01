@@ -75,7 +75,13 @@
                         "isShown" : true,
                         "characterType" : "SimpleCharacter"
                     }], 
-                    "inventory": { "items" : []}, "isPassable" : true},
+                    "inventory": { "items" : [{
+                        "namePrefix" : "ein",
+                        "name" : "Heiltrank",
+                        "description" : "Stellt Leben wieder her",
+                        "type" : "healing",
+                        "attributeValue" : 10
+                    }]}, "isPassable" : true},
                     {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : []}, "isPassable" : false},
                     {"descriptionPrefix": "im", "description" : "Gebirge", "characters": [], "inventory": { "items" : [{
                         "namePrefix" : "ein",

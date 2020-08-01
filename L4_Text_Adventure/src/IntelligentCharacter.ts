@@ -1,7 +1,6 @@
 import { Character } from "./Character";
 import { Inventory} from "./Inventory";
 import { ItemType } from "./ItemType";
-import { Item } from "./Item";
 
 export class IntelligentCharacter extends Character {
     public information: string;
@@ -28,7 +27,7 @@ export class IntelligentCharacter extends Character {
         let isItemUsable: boolean = false;
         for (let i: number = 0; i < this.inventory.items.length; i++) {
             if (_itemName.toUpperCase() === this.inventory.items[i].name.toUpperCase()) {
-                if ([this.inventory.items[i].type == ItemType.Healing]) {
+                if (this.inventory.items[i].type == ItemType.Healing) {
                     this.health += this.inventory.items[i].attributeValue;
                     this.inventory.items.splice(i, 1);
                     isItemUsable = true;

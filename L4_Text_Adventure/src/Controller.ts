@@ -40,7 +40,7 @@ export class Controller implements Observer {
         } else if (_userInput == "look" || _userInput == "l") {
             consoleOutput = mainCharacterPlace.getFullDescription();
         } else if (_userInput == "inventory" || _userInput == "i") {
-            consoleOutput = this.mainCharacter!.inventory.getInventory();
+            consoleOutput = this.mainCharacter!.inventory.getInventory(true);
         } else if (_userInput.substring(0, 5) == "take " || _userInput.substring(0, 2) == "t ") {
             consoleOutput = this.takeItem(mainCharacterPlace, _userInput);
         } else if (_userInput.substring(0, 5) == "drop " || _userInput.substring(0, 2) == "d ") {
@@ -136,27 +136,30 @@ export class Controller implements Observer {
                 consoleOutput = "<p class=\"failure\">Du wurdest besiegt</p>";
             }
         } else
-            consoleOutput = "<p class=\"failure\">Der Character existiert nicht</p>";  
+            consoleOutput = "<p class=\"failure\">Der Charakter existiert nicht</p>";  
 
         return consoleOutput;
     }
 
     private speak(_mainCharacterPlace: Place, _userInput: string): string {
         let consoleOutput: string = "";
-        let talkedCharacter: IntelligentCharacter|null = <IntelligentCharacter> _mainCharacterPlace.getCharacter(_userInput.substring(_userInput.indexOf(" ") + 1, _userInput.length));
+        let talkedCharacter: Character | IntelligentCharacter | null = _mainCharacterPlace.getCharacter(_userInput.substring(_userInput.indexOf(" ") + 1, _userInput.length));
 
         if (talkedCharacter != null) {
             if (talkedCharacter.characterType == CharacterType.IntelligentCharacter) {
-                consoleOutput += talkedCharacter.information;
+                let talkedCharacterIntelligent: IntelligentCharacter = <IntelligentCharacter> talkedCharacter;
+                consoleOutput += talkedCharacterIntelligent.information;
 
-                if (talkedCharacter.wantsToTrade)
-                    talkedCharacter.giveItems(this.mainCharacter);
+                if (talkedCharacterIntelligent.wantsToTrade)
+                    talkedCharacterIntelligent.giveItems(this.mainCharacter);
 
                 if (talkedCharacter.health <= 0)
                     _mainCharacterPlace.removeCharacter(talkedCharacter.name);
+            } else {
+                consoleOutput = "<p class=\"failure\">Der Charakter spricht wohl nur die Sprache der Gewalt</p>";
             }
         } else 
-            consoleOutput = "<p class=\"failure\">Der Character existiert nicht</p>";
+            consoleOutput = "<p class=\"failure\">Der Charakter existiert nicht</p>";
 
 
         return consoleOutput;
@@ -170,7 +173,7 @@ export class Controller implements Observer {
             if (isItemUsable)
                 consoleOutput = "<p class=\"success\">Lebensenergie: " + this.mainCharacter?.health + "</p>";
             else
-            consoleOutput = "<p class=\"failure\">Item kann nicht benutzt werden </p>";
+                consoleOutput = "<p class=\"failure\">Item kann nicht benutzt werden </p>";
         } else {
             consoleOutput = "<p class=\"failure\">Item existiert nicht im Inventar</p>";
         }
@@ -200,6 +203,7 @@ export class Controller implements Observer {
 
                         if (!_jsonObject.places[i][j].characters[k].isShown) {
                             this.mainCharacter = new IntelligentCharacter(_jsonObject.places[i][j].characters[k].namePrefix, _jsonObject.places[i][j].characters[k].name, _jsonObject.places[i][j].characters[k].selfDescription, _jsonObject.places[i][j].characters[k].health, _jsonObject.places[i][j].characters[k].basicAttack, _jsonObject.places[i][j].characters[k].basicDefense, _jsonObject.places[i][j].characters[k].information, new Inventory(items), _jsonObject.places[i][j].characters[k].isShown, _jsonObject.places[i][j].characters[k].characterType, _jsonObject.places[i][j].characters[k].isMovingIndependently, _jsonObject.places[i][j].characters[k].wantsToTrade);
+                            newIntelligentCharacter = this.mainCharacter;
                         }
                         this.level1.places[i][j].characters[k] = newIntelligentCharacter;
 
@@ -207,6 +211,10 @@ export class Controller implements Observer {
                         let newSimpleCharacter: SimpleCharacter = new SimpleCharacter(_jsonObject.places[i][j].characters[k].namePrefix, _jsonObject.places[i][j].characters[k].name, _jsonObject.places[i][j].characters[k].selfDescription, _jsonObject.places[i][j].characters[k].health, _jsonObject.places[i][j].characters[k].basicAttack, _jsonObject.places[i][j].characters[k].basicDefense, _jsonObject.places[i][j].characters[k].isShown, _jsonObject.places[i][j].characters[k].characterType);
                         this.level1.places[i][j].characters[k] = newSimpleCharacter;
                     }
+                }
+
+                for (let m: number = 0; m < _jsonObject.places[i][j].inventory.items.length; m++) {   
+                    this.level1.places[i][j].inventory.items.push(_jsonObject.places[i][j].inventory.items[m]);
                 }
             }
         }
