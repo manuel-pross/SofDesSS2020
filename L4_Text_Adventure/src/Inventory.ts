@@ -9,7 +9,7 @@ export class Inventory {
     }
 
     public getInventory(_withoutFurtherDescription: boolean = false): string {
-        let itemsAsString: string = "Im Inventar befinden sich:<br>";
+        let itemsAsString: string = "";
         for (let item of this.items) {
             if (_withoutFurtherDescription)
                 itemsAsString += item.namePrefix + "<span class=\"interact\"> " + item.name + "</span><br>";
